@@ -1,6 +1,6 @@
 export interface GisParameters {
   container: HTMLDivElement;
-  accessToken: string;
+  accessToken: any;
   zoom: number;
   pitch: number;
   center: [number, number];

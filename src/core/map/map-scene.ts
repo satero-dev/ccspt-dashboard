@@ -78,9 +78,11 @@ export class MapScene {
 
     private getConfig(container: HTMLDivElement) {
         const center = [2.112, 41.556] as [number, number];
+        let token = process.env.REACT_APP_MAPBOX_KEY;
+
         return {
             container,
-            accessToken: "pk.eyJ1Ijoic2F0ZXJvIiwiYSI6ImNsZXk5Zzl5YjJpdG8zenAxOHp3bmJ1c2oifQ.f_vSjnzZ4IzwP1HjGWOemQ",
+            accessToken: token,
             zoom: 17,
             pitch: 50,
             bearing: -10,
