@@ -38,7 +38,7 @@ export const MapViewer = ({ children }: Props) => {
                 className="full-screen" ref={containerRef}
             />
 
-            <Button onClick={onLogout}>Log out</Button>
+            <Button variant="contained" onClick={onLogout}>Log out</Button>
 
         </>
     );

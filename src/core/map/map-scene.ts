@@ -6,7 +6,7 @@ import { GisParameters } from "../../types";
 
 export class MapScene {
     private components = new OBC.Components();
-    private readonly style = "mapbox://styles/mapbox/light-v10";
+    private readonly style = "mapbox://styles/mapbox/streets-v12";
     private map: MAPBOX.Map;
 
 
