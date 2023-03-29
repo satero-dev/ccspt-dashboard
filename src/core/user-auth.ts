@@ -4,8 +4,8 @@ import { Action } from "../middleware/actions"
 export const userAuth = {
     login: (action: Action) => {
         const auth = getAuth();
-        /*let user = action.payload.user;
-        let pass = action.payload.pass;
+        //let user = action.payload.user;
+        //let pass = action.payload.pass;
 
         let user = "satero@tauli.cat";
         let pass = "T0t0r0!!";
@@ -21,9 +21,9 @@ export const userAuth = {
                 console.log("Error");
                 const errorCode = error.code;
                 const errorMessage = error.message;
-            });*/
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider);
+            });
+        /*const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider);*/
     },
 
     logout: (action: Action) => {

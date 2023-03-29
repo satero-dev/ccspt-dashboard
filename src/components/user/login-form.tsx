@@ -16,11 +16,19 @@ export const LoginForm = ({ children }: Props) => {
         dispatch({ type: "LOGIN" })
     }
 
+    const onLogout = () => {
+        console.log("Logout!");
+        dispatch({ type: "LOGOUT" })
+    }
+
     return (
 
         <h1>
             {state.user ? (
-                <p>{state.user.displayName}</p>
+                <>
+                    <p>{state.user.displayName}</p>
+                    <button onClick={onLogout}></button>
+                </>
             ) : (
                 <button onClick={onLogin}>Login</button>
             )}
