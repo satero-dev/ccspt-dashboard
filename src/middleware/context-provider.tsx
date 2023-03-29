@@ -1,9 +1,13 @@
-import React, { createContext, useContext, useReducer } from "react";
+import {
+    createContext,
+    useReducer,
+    useContext,
+} from "react";
 import { Action } from "./actions";
+import { reducer } from "./state-handler";
+import { initialState, State } from "./state";
 import { Authenticator } from "./authenticator";
 import { executeCore } from "./core-handler";
-import { initialState, State } from "./state";
-import { reducer } from "./state-handler";
 
 type Props = {
     children?: React.ReactNode;
@@ -21,17 +25,16 @@ export const ContextProvider = ({ children }: Props) => {
     const dispatch = (value: Action) => {
         setState(value);
         executeCore(value);
-    }
+    };
 
     return (
         <appContext.Provider value={[state, dispatch]}>
             <Authenticator />
             {children}
         </appContext.Provider>
-    )
-
+    );
 };
 
 export const useAppContext = () => {
     return useContext(appContext);
-}
+};

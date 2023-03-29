@@ -1,5 +1,7 @@
 import React from "react";
 import { useAppContext } from "../../middleware/context-provider";
+import { Button } from "@mui/material";
+import { Navigate } from "react-router";
 
 type Props = {
     children?: React.ReactNode;
@@ -16,22 +18,17 @@ export const LoginForm = ({ children }: Props) => {
         dispatch({ type: "LOGIN" })
     }
 
-    const onLogout = () => {
-        console.log("Logout!");
-        dispatch({ type: "LOGOUT" })
+
+    if (state.user) {
+        return <Navigate to="/map" />
     }
 
     return (
 
         <h1>
-            {state.user ? (
-                <>
-                    <p>{state.user.email}</p>
-                    <button onClick={onLogout}>Logout</button>
-                </>
-            ) : (
-                <button onClick={onLogin}>Login</button>
-            )}
+
+            <Button variant="contained" onClick={onLogin}>Login</Button>
+
         </h1>
     );
 };

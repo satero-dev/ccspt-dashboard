@@ -1,12 +1,24 @@
-import { userAuth } from "../core/user-auth";
+import { mapHandler } from "../core/map/map-handler";
+import { userAuth } from "../core/user/user-auth";
 import { Action } from "./actions";
 
-export const executeCore = (action: Action) => {
+export const executeCore = async (action: Action) => {
     if (action.type === "LOGIN") {
-        userAuth.login(action);
+        return userAuth.login(action);
     }
 
     if (action.type === "LOGOUT") {
-        userAuth.logout(action);
+        return userAuth.logout(action);
     }
+
+    if (action.type === "START_MAP") {
+        const { container, user } = action.payload;
+        return mapHandler.start(container);
+    }
+
+    if (action.type === "REMOVE_MAP") {
+        return mapHandler.remove();
+    }
+
+
 }
