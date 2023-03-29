@@ -26,8 +26,8 @@ export const LoginForm = ({ children }: Props) => {
         <h1>
             {state.user ? (
                 <>
-                    <p>{state.user.displayName}</p>
-                    <button onClick={onLogout}></button>
+                    <p>{state.user.email}</p>
+                    <button onClick={onLogout}>Logout</button>
                 </>
             ) : (
                 <button onClick={onLogin}>Login</button>
