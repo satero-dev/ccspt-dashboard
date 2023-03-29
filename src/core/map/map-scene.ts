@@ -1,3 +1,14 @@
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "./mapDisplay.css";
+
+// The following is required to stop "npm build" from transpiling mapbox code.
+// notice the exclamation point in the import.
+// @ts-ignore 
+// eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+
 import * as THREE from "three";
 import * as OBC from "openbim-components";
 import * as MAPBOX from "mapbox-gl";
@@ -7,7 +18,6 @@ export class MapScene {
     private components = new OBC.Components();
     private readonly style = "mapbox://styles/mapbox/light-v10";
     private map: MAPBOX.Map;
-
 
     constructor(container: HTMLDivElement) {
         const config = this.getConfig(container);
