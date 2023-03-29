@@ -2,10 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBudsx2Nuc0vSUSxw-v6Xd-gwTbbfaAOs0",
+  authDomain: "ccspt-fb-spaces.firebaseapp.com",
+  projectId: "ccspt-fb-spaces",
+  storageBucket: "ccspt-fb-spaces.appspot.com",
+  messagingSenderId: "482057083927",
+  appId: "1:482057083927:web:71327ec303c7e38f311052",
+  measurementId: "G-F4CCNR7WJN",
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
 root.render(
   <React.StrictMode>
     <App />
