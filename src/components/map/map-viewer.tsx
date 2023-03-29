@@ -1,5 +1,4 @@
 import React from "react";
-import { Navigate } from "react-router";
 
 type Props = {
     children?: React.ReactNode;
