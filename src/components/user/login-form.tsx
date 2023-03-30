@@ -2,6 +2,8 @@ import React from "react";
 import { useAppContext } from "../../middleware/context-provider";
 import { Button } from "@mui/material";
 import { Navigate } from "react-router";
+import { Box } from "@mui/system";
+import "./login-styles.css";
 
 type Props = {
     children?: React.ReactNode;
@@ -25,10 +27,19 @@ export const LoginForm = ({ children }: Props) => {
 
     return (
 
-        <h1>
+        <Box
+            sx={{
+                marginTop: 8,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+            }}
+        >
+            <img className="landing-logo" alt="pt logo" src="pt-logo-landing.png" />
 
-            <Button variant="contained" onClick={onLogin}>Login</Button>
-
-        </h1>
+            <Button variant="contained" color="primary" onClick={onLogin}>
+                Accedeix
+            </Button>
+        </Box>
     );
 };
