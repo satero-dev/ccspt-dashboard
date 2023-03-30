@@ -1,3 +1,4 @@
+import { scanHandler } from "../core/scanner/scan-handler";
 import { mapHandler } from "../core/map/map-handler";
 import { userAuth } from "../core/user/user-auth";
 import { Action } from "./actions";
@@ -18,6 +19,17 @@ export const executeCore = async (action: Action) => {
 
     if (action.type === "REMOVE_MAP") {
         return mapHandler.remove();
+    }
+
+    if (action.type === "SCAN") {
+
+        console.log("fichero core-handler");
+        return scanHandler.open();
+        //return mapHandler.remove();
+    }
+    if (action.type === "EXIT_SCAN") {
+        console.log("EXIT FROM SCAN");
+        //return mapHandler.remove();
     }
 
 
