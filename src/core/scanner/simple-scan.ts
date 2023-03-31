@@ -21,8 +21,9 @@ export class SimpleScan {
         };
         ndef.onreading = (event: NDEFReadingEvent) => {
           console.log("NDEF message read.");
+          window.alert(event.currentTarget);
           this.onReadingData(event);
-          //window.alert(event.currentTarget);
+          //
         };
       })
       .catch((error) => {
@@ -30,13 +31,14 @@ export class SimpleScan {
       });
   }
 
-  private onReadingData = ({ message, serialNumber }: NDEFReadingEvent) => {
+  private onReadingData = ({ message }: NDEFReadingEvent) => {
 
     for (const record of message.records) {
       switch (record.recordType) {
         case "text":
           const textDecoder = new TextDecoder(record.encoding);
-          alert(textDecoder.decode(record.data));
+          window.alert(textDecoder.decode(record.data));
+          //alert("ALERTA COBRA");
           //setMessage(textDecoder.decode(record.data));
           break;
         case "url":
