@@ -20,7 +20,7 @@ export class SimpleScan {
           );
         };
         ndef.onreading = (event) => {
-          window.alert(event);
+          window.alert(event.currentTarget);
         };
       })
       .catch((error) => {
