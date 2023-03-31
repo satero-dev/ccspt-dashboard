@@ -60,18 +60,18 @@ export const MapViewer = ({ children }: Props) => {
 
                 <>
 
-
-                    <div className="scanner">
-                        <p className="scanner-exit" onClick={onScanClose}>X</p>
-                        <div className="scanner-container">
-                            <img src="spinner.gif" alt="spinning log" className="scanner-image" />
-                            <p className="scanner-text">
-                                Escaneando 3...
-                            </p>
+                    <div className="overlay">
+                        <div className="scanner">
+                            <p className="scanner-exit" onClick={onScanClose}>X</p>
+                            <div className="scanner-container">
+                                <img src="spinner.gif" alt="spinning log" className="scanner-image" />
+                                <p className="scanner-text">
+                                    Escaneando 4...
+                                </p>
+                            </div>
                         </div>
+
                     </div>
-
-
                 </>
 
             )}

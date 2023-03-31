@@ -4,8 +4,8 @@ export class SimpleScan {
 
   constructor() {
     console.log("Pronto me levantaré");
-    window.alert("PROMNTO");
-    this.createScan();
+
+    //this.createScan();
   }
 
   private createScan() {
@@ -22,8 +22,8 @@ export class SimpleScan {
         };
         ndef.onreading = (event: NDEFReadingEvent) => {
           //console.log("NDEF message read.");
-          window.alert("HOLA");
-          //this.onReadingData(event);
+
+          this.onReadingData(event);
           //
         };
       })
@@ -39,7 +39,6 @@ export class SimpleScan {
         case "text":
           const textDecoder = new TextDecoder(record.encoding);
           window.alert(textDecoder.decode(record.data));
-          //alert("ALERTA COBRA");
           //setMessage(textDecoder.decode(record.data));
           break;
         case "url":
