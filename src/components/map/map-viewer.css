@@ -19,6 +19,10 @@
   pointer-events: none; /* No permitir clics en elementos detrás del modal */
 }
 
-/*.overlay > Button {
+.overlay > Button {
   pointer-events: all;
-}*/
+}
+
+.overlay p {
+  padding: 8px;
+}

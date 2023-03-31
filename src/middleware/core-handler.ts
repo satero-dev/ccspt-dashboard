@@ -27,7 +27,12 @@ export const executeCore = async (action: Action) => {
         console.log("fichero core-handler");
         return scanHandler.open();
     }
+
     if (action.type === "EXIT_SCAN") {
+        console.log("EXIT FROM SCAN");
+    }
+
+    if (action.type === "ADD_BUILDING") {
         console.log("EXIT FROM SCAN");
     }
 

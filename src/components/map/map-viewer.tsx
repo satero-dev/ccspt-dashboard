@@ -12,11 +12,28 @@ type Props = {
 
 export const MapViewer = ({ children }: Props) => {
 
-    const [state, dispatch] = useAppContext();
-    const containerRef = useRef(null);
+
+    const [state, dispatch] = useAppContext();  //Recuperamos el estado del usuario    
+    const containerRef = useRef(null);  //Lugar donde se muestra la información
+
     const { user } = state;
 
+    const [isCreatingBuilding, setIsCreatingBuilding] = useState(false);
     const [isScanning, setIsScanning] = useState(false);
+
+    //Función para controlar si se está creando un edificio o no
+    const onToggleCreate = () => {
+        console.log("Cierra la ventana");
+        setIsCreatingBuilding(!isCreatingBuilding);
+    }
+
+    //Función que se ejecuta mientras se crea un edificio
+    const onCreateBuilding = () => {
+        if (isCreatingBuilding) {
+            dispatch({ type: "ADD_BUILDING", payload: user });
+            setIsCreatingBuilding(false);
+        }
+    }
 
     const onScanClose = () => {
 
@@ -41,7 +58,11 @@ export const MapViewer = ({ children }: Props) => {
     useEffect(() => {
         const container = containerRef.current;
         if (container && user) {
-            dispatch({ type: "START_MAP", payload: { container } });
+            dispatch({ type: "START_MAP", payload: { container, user } });
+        }
+
+        return () => {
+            dispatch({ type: "REMOVE_MAP" });
         }
     }, []);
 
@@ -52,14 +73,11 @@ export const MapViewer = ({ children }: Props) => {
 
     return (
         <>
-            <div
-                className="full-screen" ref={containerRef}
-            />
+            <div className="full-screen" ref={containerRef} />
 
             {isScanning && (
 
                 <>
-
                     <div className="overlay">
                         <div className="scanner">
                             <p className="scanner-exit" onClick={onScanClose}>X</p>
@@ -70,13 +88,24 @@ export const MapViewer = ({ children }: Props) => {
                                 </p>
                             </div>
                         </div>
-
                     </div>
                 </>
 
             )}
 
-            <Button sx={{ background: "#FF0000" }} variant="contained" onClick={onLogout}>Log out</Button>
+            {isCreatingBuilding && (
+
+                <>
+                    <div className="overlay">
+                        <p>Right click to create a new Building or </p>
+                        <Button variant="contained" onClick={onToggleCreate}>cancel</Button>
+                    </div>
+                </>
+
+            )}
+
+            <Button variant="contained" onClick={onLogout}>Log out</Button>
+            <Button variant="contained" onClick={onToggleCreate}>Create building</Button>
             <Button variant="contained" onClick={onScan}>Scan</Button>
 
         </>
