@@ -35,31 +35,6 @@ export class SimpleScan {
       });
   }
 
-  /*private createScan() {
-    const ndef = new NDEFReader();
-
-    ndef
-      .scan()
-      .then(() => {
-        console.log("Scan started successfully.");
-        ndef.onreadingerror = (event) => {
-          window.alert(
-            "Error! Cannot read data from the NFC tag. Try a different one?"
-          );
-        };
-        ndef.onreading = (event: NDEFReadingEvent) => {
-          console.log("NDEF message read.");
-          this.onReadingData(event);
-          //window.alert(event.currentTarget);
-        };
-      })
-      .catch((error) => {
-        window.alert(`Error! Scan failed to start: ${error}.`);
-      });
-  }*/
-
-
-
   private onReadingData = ({ message, serialNumber }: NDEFReadingEvent) => {
 
     for (const record of message.records) {
