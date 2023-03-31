@@ -19,6 +19,8 @@ export const MapViewer = ({ children }: Props) => {
     const [isScanning, setIsScanning] = useState(false);
 
     const onScanClose = () => {
+
+        console.log("CIERRA SCAN");
         setIsScanning(false);
     }
 
@@ -54,20 +56,44 @@ export const MapViewer = ({ children }: Props) => {
                 className="full-screen" ref={containerRef}
             />
 
-            <Button variant="contained" onClick={onLogout}>Log out</Button>
             {isScanning && (
-                <div className="scanner">
-                    <p className="scanner-exit" onClick={onScanClose}>X</p>
-                    <div className="scanner-container">
-                        <img src="spinner.gif" alt="spinning log" className="scanner-image" />
-                        <p className="scanner-text">
-                            Scanning...
-                        </p>
+
+                <>
+
+                    <div className="overlay">
+                        <div className="scanner">
+                            <p className="scanner-exit" onClick={onScanClose}>X</p>
+                            <div className="scanner-container">
+                                <img src="spinner.gif" alt="spinning log" className="scanner-image" />
+                                <p className="scanner-text">
+                                    Scanning...
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                </>
+
             )}
+
+            <Button variant="contained" onClick={onLogout}>Log out</Button>
             <Button variant="contained" onClick={onScan}>Scan</Button>
 
         </>
     );
 };
+
+
+/*
+<div className="overlay">
+                    <div className="scanner">
+                        <p className="scanner-exit" onClick={onScanClose}>X</p>
+                        <div className="scanner-container">
+                            <img src="spinner.gif" alt="spinning log" className="scanner-image" />
+                            <p className="scanner-text">
+                                Scanning...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+*/

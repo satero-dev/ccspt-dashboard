@@ -11,7 +11,7 @@ export const scanHandler = {
 
 
         console.log("fichero scan-handler");
-        this.viewer = new SimpleScan();
+        //this.viewer = new SimpleScan();
 
         //ScanRFID();
         //return (Scan())
