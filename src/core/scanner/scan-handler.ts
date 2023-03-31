@@ -1,16 +1,20 @@
-import { ScanRFID } from "./scan";
+
+import { SimpleScan } from './simple-scan';
 
 
 export const scanHandler = {
 
-    //viewer: null,
+    viewer: null as SimpleScan | null,
+
 
     open() {
 
 
-        console.log("Scan window open!");
-        //this.viewer = 
+        console.log("fichero scan-handler");
+        this.viewer = new SimpleScan();
+
         //ScanRFID();
+        //return (Scan())
 
 
     },

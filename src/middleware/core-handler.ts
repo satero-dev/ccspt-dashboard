@@ -1,7 +1,8 @@
-import { scanHandler } from "../core/scanner/scan-handler";
+import { SimpleScan } from "../core/scanner/simple-scan";
 import { mapHandler } from "../core/map/map-handler";
 import { userAuth } from "../core/user/user-auth";
 import { Action } from "./actions";
+import { scanHandler } from "../core/scanner/scan-handler";
 
 export const executeCore = async (action: Action) => {
     if (action.type === "LOGIN") {

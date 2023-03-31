@@ -16,19 +16,24 @@ export const MapViewer = ({ children }: Props) => {
     const containerRef = useRef(null);
     const { user } = state;
 
-    const onToggleScanning = () => {
-        setIsScanning(!isScanning);
+    const [isScanning, setIsScanning] = useState(false);
+
+    const onScanClose = () => {
+        setIsScanning(false);
     }
 
-    const [isScanning, setIsScanning] = useState(false);
 
     const onLogout = () => {
         dispatch({ type: "LOGOUT" });
     };
 
     const onScan = () => {
+
+        setIsScanning(true);
+
         console.log("Pulsamos botón Scan");
         dispatch({ type: "SCAN" });
+
     }
 
     useEffect(() => {
@@ -52,7 +57,7 @@ export const MapViewer = ({ children }: Props) => {
             <Button variant="contained" onClick={onLogout}>Log out</Button>
             {isScanning && (
                 <div className="scanner">
-                    <p className="scanner-exit" onClick={onToggleScanning}>X</p>
+                    <p className="scanner-exit" onClick={onScanClose}>X</p>
                     <div className="scanner-container">
                         <img src="spinner.gif" alt="spinning log" className="scanner-image" />
                         <p className="scanner-text">
@@ -61,7 +66,7 @@ export const MapViewer = ({ children }: Props) => {
                     </div>
                 </div>
             )}
-            <Button variant="contained" onClick={onToggleScanning}>Scan</Button>
+            <Button variant="contained" onClick={onScan}>Scan</Button>
 
         </>
     );
