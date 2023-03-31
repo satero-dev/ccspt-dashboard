@@ -9,26 +9,21 @@ export class SimpleScan {
 
   private createScan() {
     const ndef = new NDEFReader();
-    let onReadingListener: ((event: NDEFReadingEvent) => void) | null = null;
 
     ndef
       .scan()
       .then(() => {
         console.log("Scan started successfully.");
-
         ndef.onreadingerror = (event) => {
           window.alert(
             "Error! Cannot read data from the NFC tag. Try a different one?"
           );
         };
-
-        onReadingListener = (event: NDEFReadingEvent) => {
+        ndef.onreading = (event: NDEFReadingEvent) => {
           console.log("NDEF message read.");
           this.onReadingData(event);
-          ndef.removeEventListener("reading", this.createScan);
+          //window.alert(event.currentTarget);
         };
-
-        ndef.addEventListener("reading", this.createScan);
       })
       .catch((error) => {
         window.alert(`Error! Scan failed to start: ${error}.`);
