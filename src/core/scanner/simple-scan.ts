@@ -20,16 +20,11 @@ export class SimpleScan {
           );
         };
         ndef.onreading = (event) => {
-          window.alert("NDEF message read.");
+          window.alert(event.target);
         };
       })
       .catch((error) => {
         window.alert(`Error! Scan failed to start: ${error}.`);
       });
-    /*if ("NDEFReader" in window) {
-      console.log("NDEFReader");
-    } else {
-      console.log("NOPE");
-    }*/
   }
 }
