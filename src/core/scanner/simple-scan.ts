@@ -3,7 +3,6 @@ import React, { useCallback, useEffect } from "react";
 export class SimpleScan {
 
   constructor() {
-    window.alert("Constructr");
     this.createScan();
   }
 
@@ -20,7 +19,6 @@ export class SimpleScan {
           );
         };
         ndef.onreading = (event: NDEFReadingEvent) => {
-          window.alert("NDEF message read.");
           console.log("NDEF message read.");
           this.onReadingData(event);
           //window.alert(event.currentTarget);

@@ -66,7 +66,7 @@ export const MapViewer = ({ children }: Props) => {
                             <div className="scanner-container">
                                 <img src="spinner.gif" alt="spinning log" className="scanner-image" />
                                 <p className="scanner-text">
-                                    Escaneando 5...
+                                    Escaneando...
                                 </p>
                             </div>
                         </div>
