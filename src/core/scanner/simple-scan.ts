@@ -15,16 +15,16 @@ export class SimpleScan {
       .then(() => {
         console.log("Scan started successfully.");
         ndef.onreadingerror = (event) => {
-          console.log(
+          window.alert(
             "Error! Cannot read data from the NFC tag. Try a different one?"
           );
         };
         ndef.onreading = (event) => {
-          console.log("NDEF message read.");
+          window.alert("NDEF message read.");
         };
       })
       .catch((error) => {
-        console.log(`Error! Scan failed to start: ${error}.`);
+        window.alert(`Error! Scan failed to start: ${error}.`);
       });
     /*if ("NDEFReader" in window) {
       console.log("NDEFReader");

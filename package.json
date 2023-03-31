@@ -14,6 +14,7 @@
     "@types/node": "^16.18.22",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
+    "@types/w3c-web-nfc": "^1.0.0",
     "dotenv": "^16.0.3",
     "firebase": "^9.18.0",
     "mapbox-gl": "^2.13.0",

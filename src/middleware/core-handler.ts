@@ -15,7 +15,7 @@ export const executeCore = async (action: Action) => {
 
     if (action.type === "START_MAP") {
         const { container, user } = action.payload;
-        return mapHandler.start(container);
+        //return mapHandler.start(container);
     }
 
     if (action.type === "REMOVE_MAP") {
@@ -26,11 +26,9 @@ export const executeCore = async (action: Action) => {
 
         console.log("fichero core-handler");
         return scanHandler.open();
-        //return mapHandler.remove();
     }
     if (action.type === "EXIT_SCAN") {
         console.log("EXIT FROM SCAN");
-        //return mapHandler.remove();
     }
 
 
