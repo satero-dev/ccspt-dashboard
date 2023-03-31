@@ -10,6 +10,8 @@ export class SimpleScan {
   private createScan() {
     const ndef = new NDEFReader();
 
+    const ctlr = new AbortController();
+
     ndef
       .scan()
       .then(() => {
@@ -22,6 +24,7 @@ export class SimpleScan {
         ndef.onreading = (event: NDEFReadingEvent) => {
           console.log("NDEF message read.");
           this.onReadingData(event);
+          ctlr.abort();
           //window.alert(event.currentTarget);
         };
       })
