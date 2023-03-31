@@ -19,12 +19,32 @@ export class SimpleScan {
             "Error! Cannot read data from the NFC tag. Try a different one?"
           );
         };
-        ndef.onreading = (event) => {
-          window.alert(event.currentTarget);
+        ndef.onreading = (event: NDEFReadingEvent) => {
+          console.log("NDEF message read.");
+          this.onReadingData(event);
+          //window.alert(event.currentTarget);
         };
       })
       .catch((error) => {
         window.alert(`Error! Scan failed to start: ${error}.`);
       });
   }
+
+  private onReadingData = ({ message, serialNumber }: NDEFReadingEvent) => {
+
+    for (const record of message.records) {
+      switch (record.recordType) {
+        case "text":
+          const textDecoder = new TextDecoder(record.encoding);
+          alert(textDecoder.decode(record.data));
+          //setMessage(textDecoder.decode(record.data));
+          break;
+        case "url":
+          // TODO: Read URL record with record data.
+          break;
+        default:
+        // TODO: Handle other records with record data.
+      }
+    }
+  };
 }
