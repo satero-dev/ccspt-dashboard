@@ -76,7 +76,7 @@ export const MapViewer = ({ children }: Props) => {
 
             )}
 
-            <Button variant="contained" onClick={onLogout}>Log out</Button>
+            <Button sx={{ background: "#FF0000" }} variant="contained" onClick={onLogout}>Log out</Button>
             <Button variant="contained" onClick={onScan}>Scan</Button>
 
         </>
