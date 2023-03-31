@@ -4,6 +4,7 @@ export class SimpleScan {
 
   constructor() {
     console.log("Pronto me levantaré");
+    window.alert("PROMNTO");
     this.createScan();
   }
 
@@ -20,9 +21,9 @@ export class SimpleScan {
           );
         };
         ndef.onreading = (event: NDEFReadingEvent) => {
-          console.log("NDEF message read.");
-          window.alert(event.currentTarget);
-          this.onReadingData(event);
+          //console.log("NDEF message read.");
+          window.alert("HOLA");
+          //this.onReadingData(event);
           //
         };
       })
