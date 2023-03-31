@@ -9,8 +9,34 @@ export class SimpleScan {
 
   private createScan() {
     const ndef = new NDEFReader();
+    let onReadingListener: ((event: NDEFReadingEvent) => void) | null = null;
 
-    const ctlr = new AbortController();
+    ndef
+      .scan()
+      .then(() => {
+        console.log("Scan started successfully.");
+
+        ndef.onreadingerror = (event) => {
+          window.alert(
+            "Error! Cannot read data from the NFC tag. Try a different one?"
+          );
+        };
+
+        onReadingListener = (event: NDEFReadingEvent) => {
+          console.log("NDEF message read.");
+          this.onReadingData(event);
+          ndef.removeEventListener("reading", this.createScan);
+        };
+
+        ndef.addEventListener("reading", this.createScan);
+      })
+      .catch((error) => {
+        window.alert(`Error! Scan failed to start: ${error}.`);
+      });
+  }
+
+  /*private createScan() {
+    const ndef = new NDEFReader();
 
     ndef
       .scan()
@@ -24,14 +50,15 @@ export class SimpleScan {
         ndef.onreading = (event: NDEFReadingEvent) => {
           console.log("NDEF message read.");
           this.onReadingData(event);
-          ctlr.abort();
           //window.alert(event.currentTarget);
         };
       })
       .catch((error) => {
         window.alert(`Error! Scan failed to start: ${error}.`);
       });
-  }
+  }*/
+
+
 
   private onReadingData = ({ message, serialNumber }: NDEFReadingEvent) => {
 
