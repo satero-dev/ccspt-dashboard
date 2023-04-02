@@ -13,7 +13,7 @@ export class MapScene {
     private components = new OBC.Components();
     private readonly style = "mapbox://styles/mapbox/streets-v12";
     private map: MAPBOX.Map;
-    private center: LngLat = { lat: 0, lng: 0 };; //Centro de la escena
+    private center: LngLat = { lat: 0, lng: 0 }; //Centro de la escena
     private clickedCoordinates: LngLat = { lat: 0, lng: 0 };
     private labels: { [id: string]: CSS2DObject } = {};
 
@@ -79,6 +79,8 @@ export class MapScene {
 
         map.on("contextmenu", this.storeMousePosition);
 
+
+
         console.log(map.getCenter().lat);
         //this.setGeoLocation(map.getCenter().lng, map.getCenter().lat);
         return map;
@@ -96,11 +98,70 @@ export class MapScene {
         this.addToScene([building]);
     }
 
+    userLocation(user: User) {
+
+        console.log("INTENTOLO")
+
+
+        let latitud: number = 0;
+        let longitud: number = 0;
+
+        navigator.geolocation.getCurrentPosition(position => {
+            console.log(position);
+
+            longitud = position.coords.longitude;
+            latitud = position.coords.latitude;
+        });
+
+        //const center: LngLat = { lat: 0, lng: 0 };
+        const { lat, lng } = { lat: longitud, lng: latitud };
+
+        const userID = user.uid;
+        const building = { userID, lat, lng, uid: "" };
+        this.addUserLocation([building]);
+
+    }
+
+    private addUserLocation(buildings: Building[]) {
+        for (const building of buildings) {
+
+            const { uid, lng, lat } = building;
+
+            console.log("addUserLocation");
+
+
+
+
+            const htmlElement = this.createHTMLElement("🚩");
+            const label = new CSS2DObject(htmlElement);
+
+            /*const center = MAPBOX.MercatorCoordinate.fromLngLat(
+                { ...this.center },
+                0
+            );
+
+
+            const units = center.meterInMercatorCoordinateUnits();
+            const model = MAPBOX.MercatorCoordinate.fromLngLat({ lng, lat }, 0);
+            model.x /= units;
+            model.y /= units;
+            center.x /= units;
+            center.y /= units;
+
+            label.position.set(model.x - center.x, 0, model.y - center.y);*/
+            label.position.set(lng, 0, lat);
+
+            this.components.scene.get().add(label);
+            this.labels[uid] = label;
+        }
+
+    }
+
 
     private addToScene(buildings: Building[]) {
         for (const building of buildings) {
             const { uid, lng, lat } = building;
-            const htmlElement = this.createHTMLElement();
+            const htmlElement = this.createHTMLElement("🏥");
             const label = new CSS2DObject(htmlElement);
 
             const center = MAPBOX.MercatorCoordinate.fromLngLat(
@@ -123,9 +184,11 @@ export class MapScene {
         }
     }
 
-    private createHTMLElement() {
+    private createHTMLElement(content: string) {
+
+        console.log("PONIENDO LA PICA");
         const div = document.createElement("div");
-        div.textContent = "🏥";
+        div.textContent = content;
         div.classList.add("thumbnail");
         return div;
     }
