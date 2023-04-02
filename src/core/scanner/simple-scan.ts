@@ -1,13 +1,20 @@
+import * as MAPBOX from "mapbox-gl";
 import React, { useCallback, useEffect } from "react";
+import { lnglat } from "../map/map-scene";
 
 export class SimpleScan {
 
   constructor() {
+    console.log("latitud en scan: " + lnglat);
     this.createScan();
+
+
   }
 
   private createScan() {
     const ndef = new NDEFReader();
+
+    //console.log(MAPBOX.getCenter().lat);
 
     ndef
       .scan()

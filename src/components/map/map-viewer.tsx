@@ -46,6 +46,7 @@ export const MapViewer = ({ children }: Props) => {
         dispatch({ type: "LOGOUT" });
     };
 
+
     const onScan = () => {
 
         setIsScanning(true);
@@ -73,7 +74,11 @@ export const MapViewer = ({ children }: Props) => {
 
     return (
         <>
-            <div className="full-screen" ref={containerRef} />
+            <div
+                className="full-screen"
+                onContextMenu={onCreateBuilding}
+                ref={containerRef}
+            />
 
             {isScanning && (
 

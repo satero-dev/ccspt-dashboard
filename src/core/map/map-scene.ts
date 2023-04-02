@@ -1,17 +1,26 @@
 import * as THREE from "three";
 import * as OBC from "openbim-components";
 import * as MAPBOX from "mapbox-gl";
-import { GisParameters } from "../../types";
+import { Building, GisParameters, LngLat } from "../../types";
+import React, { useState } from "react";
+import { User } from "firebase/auth";
+import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
 
+export let lnglat = [0, 0];
 
 export class MapScene {
+
     private components = new OBC.Components();
     private readonly style = "mapbox://styles/mapbox/streets-v12";
     private map: MAPBOX.Map;
+    private center: LngLat = { lat: 0, lng: 0 };; //Centro de la escena
+    private clickedCoordinates: LngLat = { lat: 0, lng: 0 };
+    private labels: { [id: string]: CSS2DObject } = {};
 
 
     constructor(container: HTMLDivElement) {
         const config = this.getConfig(container);
+        //const [isCreatingBuilding, setIsCreatingBuilding] = useState(false);
         this.map = this.createMap(config);
         this.initializeComponent(config);
         this.createScene();
@@ -21,6 +30,12 @@ export class MapScene {
         this.components.dispose();
         (this.map as any) = null;
         (this.components as any) = null;
+        for (const id in this.labels) {
+            const label = this.labels[id];
+            label.removeFromParent();
+            label.element.remove();
+        }
+        this.labels = {};
 
     }
 
@@ -62,7 +77,57 @@ export class MapScene {
             })
         );
 
+        map.on("contextmenu", this.storeMousePosition);
+
+        console.log(map.getCenter().lat);
+        //this.setGeoLocation(map.getCenter().lng, map.getCenter().lat);
         return map;
+    }
+
+    /*setGeoLocation(lg: number, lt: number) {
+
+        lnglat = [lg, lt];
+    }*/
+
+    addBuilding(user: User) {
+        const { lat, lng } = this.clickedCoordinates;
+        const userID = user.uid;
+        const building = { userID, lat, lng, uid: "" };
+        this.addToScene([building]);
+    }
+
+
+    private addToScene(buildings: Building[]) {
+        for (const building of buildings) {
+            const { uid, lng, lat } = building;
+            const htmlElement = this.createHTMLElement();
+            const label = new CSS2DObject(htmlElement);
+
+            const center = MAPBOX.MercatorCoordinate.fromLngLat(
+                { ...this.center },
+                0
+            );
+
+            const units = center.meterInMercatorCoordinateUnits();
+            const model = MAPBOX.MercatorCoordinate.fromLngLat({ lng, lat }, 0);
+            model.x /= units;
+            model.y /= units;
+            center.x /= units;
+            center.y /= units;
+
+            label.position.set(model.x - center.x, 0, model.y - center.y);
+
+            this.components.scene.get().add(label);
+            this.labels[uid] = label;
+
+        }
+    }
+
+    private createHTMLElement() {
+        const div = document.createElement("div");
+        div.textContent = "🏥";
+        div.classList.add("thumbnail");
+        return div;
     }
 
     private createScene() {
@@ -76,8 +141,14 @@ export class MapScene {
         scene.add(directionalLight2);
     }
 
+    //Capturamos la posición del mouse
+    private storeMousePosition = (event: MAPBOX.MapMouseEvent) => {
+        this.clickedCoordinates = { ...event.lngLat };
+    }
+
     private getConfig(container: HTMLDivElement) {
         const center = [2.112, 41.556] as [number, number];
+        this.center = { lng: center[0], lat: center[1] };
         let token = process.env.REACT_APP_MAPBOX_KEY;
         //let token = "pk.eyJ1Ijoic2F0ZXJvIiwiYSI6ImNsZXk5Zzl5YjJpdG8zenAxOHp3bmJ1c2oifQ.f_vSjnzZ4IzwP1HjGWOemQ";
 

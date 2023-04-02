@@ -33,7 +33,7 @@ export const executeCore = async (action: Action) => {
     }
 
     if (action.type === "ADD_BUILDING") {
-        console.log("EXIT FROM SCAN");
+        mapHandler.addBuilding(action.payload);
     }
 
 
