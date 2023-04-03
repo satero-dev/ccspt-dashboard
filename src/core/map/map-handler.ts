@@ -26,6 +26,13 @@ export const mapHandler = {
         if (this.viewer) {
             console.log("map-handler alert");
             this.viewer.addBuilding(user);
+            //this.viewer.userLocation(user);
+        }
+    },
+
+    scanAsset(user: User) {
+        if (this.viewer) {
+            console.log("map-handler scan");
             this.viewer.userLocation(user);
         }
     },

@@ -16,7 +16,7 @@ export const Scanner = ({ children }: Props) => {
 
 
   const onScanExit = () => {
-    dispatch({ type: "EXIT_SCAN" });
+    //dispatch({ type: "EXIT_SCAN" });
   }
 
   return (

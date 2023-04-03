@@ -22,14 +22,14 @@ export const executeCore = async (action: Action) => {
         return mapHandler.remove();
     }
 
-    if (action.type === "SCAN") {
+    if (action.type === "OPEN_SCAN") {
 
-        console.log("fichero core-handler");
-        return scanHandler.open();
+        console.log("scan core-handler");
+        scanHandler.open();
     }
 
-    if (action.type === "EXIT_SCAN") {
-        console.log("EXIT FROM SCAN");
+    if (action.type === "SCAN_ASSET") {
+        mapHandler.scanAsset(action.payload);
     }
 
     if (action.type === "ADD_BUILDING") {

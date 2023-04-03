@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import * as OBC from "openbim-components";
 import * as MAPBOX from "mapbox-gl";
-import { Building, GisParameters, LngLat } from "../../types";
+import { Building, GisParameters, LngLat, Asset } from "../../types";
 import React, { useState } from "react";
 import { User } from "firebase/auth";
 import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
@@ -86,11 +86,7 @@ export class MapScene {
         return map;
     }
 
-    /*setGeoLocation(lg: number, lt: number) {
-
-        lnglat = [lg, lt];
-    }*/
-
+    //Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
     addBuilding(user: User) {
         const { lat, lng } = this.clickedCoordinates;
         const userID = user.uid;
@@ -102,67 +98,55 @@ export class MapScene {
 
         console.log("INTENTOLO")
 
-
-        let latitud: number = 0;
-        let longitud: number = 0;
-
         navigator.geolocation.getCurrentPosition(position => {
+
             console.log(position);
 
-            longitud = position.coords.longitude;
-            latitud = position.coords.latitude;
+            let longitud = position.coords.longitude;
+            let latitud = position.coords.latitude;
+
+            console.log("userLocation lng: " + longitud);
+            console.log("userLocation lat: " + latitud);
+
+            const { lat, lng } = { lat: longitud, lng: latitud };
+
+            const asset = { id: "", lat, lng };
+            this.addUserLocation(asset);
+
         });
-
-        //const center: LngLat = { lat: 0, lng: 0 };
-        const { lat, lng } = { lat: longitud, lng: latitud };
-
-        const userID = user.uid;
-        const building = { userID, lat, lng, uid: "" };
-        this.addUserLocation([building]);
 
     }
 
-    private addUserLocation(buildings: Building[]) {
-        for (const building of buildings) {
+    private addUserLocation(asset: Asset) {
 
-            const { uid, lng, lat } = building;
+        console.log("ADDUSERLOCATION");
 
-            console.log("addUserLocation");
+        const { id, lng, lat } = asset;
 
+        console.log("addUserLocation lng: " + lng);
+        console.log("addUserLocation lat: " + lat);
 
+        const htmlElement = this.createHTMLElement("🚩");
+        const label = new CSS2DObject(htmlElement);
 
+        label.position.set(lng, 0, lat);
 
-            const htmlElement = this.createHTMLElement("🚩");
-            const label = new CSS2DObject(htmlElement);
+        this.components.scene.get().add(label);
+        this.labels[id] = label;
 
-            /*const center = MAPBOX.MercatorCoordinate.fromLngLat(
-                { ...this.center },
-                0
-            );
-
-
-            const units = center.meterInMercatorCoordinateUnits();
-            const model = MAPBOX.MercatorCoordinate.fromLngLat({ lng, lat }, 0);
-            model.x /= units;
-            model.y /= units;
-            center.x /= units;
-            center.y /= units;
-
-            label.position.set(model.x - center.x, 0, model.y - center.y);*/
-            label.position.set(lng, 0, lat);
-
-            this.components.scene.get().add(label);
-            this.labels[uid] = label;
-        }
 
     }
 
 
     private addToScene(buildings: Building[]) {
         for (const building of buildings) {
+
             const { uid, lng, lat } = building;
             const htmlElement = this.createHTMLElement("🏥");
             const label = new CSS2DObject(htmlElement);
+
+            console.log("addToScene lng: " + lng);
+            console.log("addToScene lat: " + lat);
 
             const center = MAPBOX.MercatorCoordinate.fromLngLat(
                 { ...this.center },

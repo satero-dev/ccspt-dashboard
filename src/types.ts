@@ -15,6 +15,12 @@ export interface Building {
   lng: number;
 }
 
+export interface Asset {
+  id: string;
+  lat: number;
+  lng: number;
+}
+
 export interface LngLat {
   lng: number;
   lat: number;
