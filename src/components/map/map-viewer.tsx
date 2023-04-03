@@ -52,7 +52,10 @@ export const MapViewer = ({ children }: Props) => {
         setIsScanning(true);
 
         console.log("Pulsamos botón Scan");
-        dispatch({ type: "OPEN_SCAN" });
+        //dispatch({ type: "OPEN_SCAN" });
+        dispatch({ type: "SCAN_ASSET" });
+
+
 
     }
 

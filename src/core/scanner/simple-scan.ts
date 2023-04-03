@@ -1,13 +1,12 @@
-import * as MAPBOX from "mapbox-gl";
 import React, { useCallback, useEffect } from "react";
-import { useAppContext } from "../../middleware/context-provider";
 import { lnglat } from "../map/map-scene";
 
 export class SimpleScan {
 
   constructor() {
     console.log("latitud en scan: " + lnglat);
-    this.createScan();
+    //this.createScan();
+    //this.sendLocation();    
 
 
   }
@@ -39,16 +38,13 @@ export class SimpleScan {
 
   private onReadingData = ({ message }: NDEFReadingEvent) => {
 
-    const [state, dispatch] = useAppContext();  //Recuperamos el estado del usuario
-    const { user } = state;
-
     for (const record of message.records) {
       switch (record.recordType) {
         case "text":
           const textDecoder = new TextDecoder(record.encoding);
           window.alert(textDecoder.decode(record.data));
+          this.sendLocation();
 
-          dispatch({ type: "SCAN_ASSET", payload: user });
           //setMessage(textDecoder.decode(record.data));
           break;
         case "url":
@@ -59,4 +55,8 @@ export class SimpleScan {
       }
     }
   };
+
+  private sendLocation = () => {
+
+  }
 }
