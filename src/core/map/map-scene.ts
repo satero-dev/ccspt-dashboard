@@ -94,7 +94,7 @@ export class MapScene {
 
     userLocation(user: User) {
 
-        //console.log("INTENTOLO")
+        console.log("INTENTOLO")
 
         navigator.geolocation.getCurrentPosition(position => {
 
@@ -115,6 +115,8 @@ export class MapScene {
 
             const asset = { id: "", lat, lng };
             this.addUserLocation(asset);
+
+
 
         });
 
@@ -153,6 +155,10 @@ export class MapScene {
         this.components.scene.get().add(label);
         this.labels[id] = label;
 
+        this.map.flyTo({
+            center: [lng, lat],
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
 
     }
 
