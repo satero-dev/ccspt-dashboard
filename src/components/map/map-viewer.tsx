@@ -83,7 +83,7 @@ export const MapViewer = ({ children }: Props) => {
                 ref={containerRef}
             />
 
-            {isScanning && (
+            {isScanning && false && (
 
                 <>
                     <div className="overlay">

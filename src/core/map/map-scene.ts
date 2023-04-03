@@ -105,6 +105,11 @@ export class MapScene {
             let longitud = position.coords.longitude;
             let latitud = position.coords.latitude;
 
+            window.alert("Lng: " + longitud + ", Lat: " + latitud)
+
+            //let longitud = this.map.getCenter().lng;
+            //let latitud = this.map.getCenter().lat;
+
             console.log("userLocation lng: " + longitud);
             console.log("userLocation lat: " + latitud);
 
