@@ -79,9 +79,7 @@ export class MapScene {
 
         map.on("contextmenu", this.storeMousePosition);
 
-
-
-        console.log(map.getCenter().lat);
+        //console.log(map.getCenter().lat);
         //this.setGeoLocation(map.getCenter().lng, map.getCenter().lat);
         return map;
     }
@@ -96,22 +94,22 @@ export class MapScene {
 
     userLocation(user: User) {
 
-        console.log("INTENTOLO")
+        //console.log("INTENTOLO")
 
         navigator.geolocation.getCurrentPosition(position => {
 
-            console.log(position);
+            //console.log(position);
 
             let longitud = position.coords.longitude;
             let latitud = position.coords.latitude;
 
-            window.alert("Lng: " + longitud + ", Lat: " + latitud)
+            //window.alert("Lng: " + longitud + ", Lat: " + latitud)
 
             //let longitud = this.map.getCenter().lng;
             //let latitud = this.map.getCenter().lat;
 
-            console.log("userLocation lng: " + longitud);
-            console.log("userLocation lat: " + latitud);
+            //console.log("userLocation lng: " + longitud);
+            //console.log("userLocation lat: " + latitud);
 
             const { lat, lng } = { lat: latitud, lng: longitud };
 
@@ -124,14 +122,14 @@ export class MapScene {
 
     private addUserLocation(asset: Asset) {
 
-        console.log("ADDUSERLOCATION");
+        //console.log("ADDUSERLOCATION");
 
         const { id, lng, lat } = asset;
         const htmlElement = this.createHTMLElement("🚩");
         const label = new CSS2DObject(htmlElement);
 
-        console.log("addUserLocation lng: " + lng);
-        console.log("addUserLocation lat: " + lat);
+        //console.log("addUserLocation lng: " + lng);
+        //console.log("addUserLocation lat: " + lat);
 
         const center = MAPBOX.MercatorCoordinate.fromLngLat(
             { ...this.center },
@@ -145,12 +143,12 @@ export class MapScene {
         center.x /= units;
         center.y /= units;
 
-        console.log("ASSET center.x: " + center.x + " center.y: " + center.y);
-        console.log("ASSET model.x: " + model.x + " model.y: " + model.y);
+        //console.log("ASSET center.x: " + center.x + " center.y: " + center.y);
+        //console.log("ASSET model.x: " + model.x + " model.y: " + model.y);
 
         label.position.set(model.x - center.x, 0, model.y - center.y);
 
-        console.log("ASSET LABEL POSITION: " + label.position.x);
+        //console.log("ASSET LABEL POSITION: " + label.position.x);
 
         this.components.scene.get().add(label);
         this.labels[id] = label;
@@ -166,8 +164,8 @@ export class MapScene {
             const htmlElement = this.createHTMLElement("🏥");
             const label = new CSS2DObject(htmlElement);
 
-            console.log("addToScene lng: " + lng);
-            console.log("addToScene lat: " + lat);
+            //console.log("addToScene lng: " + lng);
+            //console.log("addToScene lat: " + lat);
 
             const center = MAPBOX.MercatorCoordinate.fromLngLat(
                 { ...this.center },
@@ -181,12 +179,12 @@ export class MapScene {
             center.x /= units;
             center.y /= units;
 
-            console.log("BUILDING center.x: " + center.x + " center.y: " + center.y);
-            console.log("BUILDING model.x: " + model.x + " model.y: " + model.y);
+            //console.log("BUILDING center.x: " + center.x + " center.y: " + center.y);
+            //console.log("BUILDING model.x: " + model.x + " model.y: " + model.y);
 
             label.position.set(model.x - center.x, 0, model.y - center.y);
 
-            console.log("BUILDING LABEL POSITION: " + label.position.x);
+            //console.log("BUILDING LABEL POSITION: " + label.position.x);
 
             this.components.scene.get().add(label);
             this.labels[uid] = label;
@@ -196,7 +194,7 @@ export class MapScene {
 
     private createHTMLElement(content: string) {
 
-        console.log("PONIENDO LA PICA");
+        //console.log("PONIENDO LA PICA");
         const div = document.createElement("div");
         div.textContent = content;
         div.classList.add("thumbnail");
