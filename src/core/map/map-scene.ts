@@ -5,6 +5,7 @@ import { Building, GisParameters, LngLat, Asset } from "../../types";
 import React, { useState } from "react";
 import { User } from "firebase/auth";
 import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
+import { MapDataBase } from "./map-database";
 
 export let lnglat = [0, 0];
 
@@ -16,6 +17,7 @@ export class MapScene {
     private center: LngLat = { lat: 0, lng: 0 }; //Centro de la escena
     private clickedCoordinates: LngLat = { lat: 0, lng: 0 };
     private labels: { [id: string]: CSS2DObject } = {};
+    private database = new MapDataBase();
 
 
     constructor(container: HTMLDivElement) {
@@ -37,6 +39,18 @@ export class MapScene {
         }
         this.labels = {};
 
+    }
+
+    async getAllBuildings(user: User) {
+        const buildings = await this.database.getBuildings(user);
+        if (!this.components) return;
+        this.addBuildingToScene(buildings);
+    }
+
+    async getAllAssets(user: User) {
+        const assets = await this.database.getAssets(user);
+        if (!this.components) return;
+        this.addAssetToScene(assets);
     }
 
 
@@ -84,94 +98,107 @@ export class MapScene {
         return map;
     }
 
-    //Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
-    addBuilding(user: User) {
+
+
+    /*//Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
+    async addAsset(user: User) {
         const { lat, lng } = this.clickedCoordinates;
         const userID = user.uid;
-        const building = { userID, lat, lng, uid: "" };
-        this.addToScene([building]);
-    }
+        const asset = { id: "", lat, lng };
+        asset.id = await this.database.addAsset(asset);
+        this.addUserLocation([asset]);
+    }*/
 
-    userLocation(user: User) {
+    async addAsset(user: User) {
 
         console.log("INTENTOLO")
 
+        let longitud = 0;
+        let latitud = 0;
+
         navigator.geolocation.getCurrentPosition(position => {
 
-            //console.log(position);
-
-            let longitud = position.coords.longitude;
-            let latitud = position.coords.latitude;
-
-            //window.alert("Lng: " + longitud + ", Lat: " + latitud)
-
-            //let longitud = this.map.getCenter().lng;
-            //let latitud = this.map.getCenter().lat;
-
-            //console.log("userLocation lng: " + longitud);
-            //console.log("userLocation lat: " + latitud);
-
-            const { lat, lng } = { lat: latitud, lng: longitud };
-
-            const asset = { id: "", lat, lng };
-            this.addUserLocation(asset);
-
-
+            longitud = position.coords.longitude;
+            latitud = position.coords.latitude;
+            this.datos(longitud, latitud);
 
         });
 
     }
 
-    private addUserLocation(asset: Asset) {
+    async datos(longitud: number, latitud: number) {
 
-        //console.log("ADDUSERLOCATION");
+        const { lat, lng } = { lat: latitud, lng: longitud };
 
-        const { id, lng, lat } = asset;
-        const htmlElement = this.createHTMLElement("🚩");
-        const label = new CSS2DObject(htmlElement);
+        const asset = { id: "", lat, lng };
+        asset.id = await this.database.addAsset(asset);
+        this.addAssetToScene([asset]);
 
-        //console.log("addUserLocation lng: " + lng);
-        //console.log("addUserLocation lat: " + lat);
-
-        const center = MAPBOX.MercatorCoordinate.fromLngLat(
-            { ...this.center },
-            0
-        );
-
-        const units = center.meterInMercatorCoordinateUnits();
-        const model = MAPBOX.MercatorCoordinate.fromLngLat({ lng, lat }, 0);
-        model.x /= units;
-        model.y /= units;
-        center.x /= units;
-        center.y /= units;
-
-        //console.log("ASSET center.x: " + center.x + " center.y: " + center.y);
-        //console.log("ASSET model.x: " + model.x + " model.y: " + model.y);
-
-        label.position.set(model.x - center.x, 0, model.y - center.y);
-
-        //console.log("ASSET LABEL POSITION: " + label.position.x);
-
-        this.components.scene.get().add(label);
-        this.labels[id] = label;
-
-        this.map.flyTo({
-            center: [lng, lat],
-            essential: true // this animation is considered essential with respect to prefers-reduced-motion
-        });
 
     }
 
+    private addAssetToScene(assets: Asset[]) {
+        for (const asset of assets) {
+            console.log("ADDUSERLOCATION");
 
-    private addToScene(buildings: Building[]) {
+            const { id, lng, lat } = asset;
+            const htmlElement = this.createHTMLElement("🚩");
+            const label = new CSS2DObject(htmlElement);
+
+            console.log("addUserLocation perico: " + id);
+
+            //console.log("addUserLocation lng: " + lng);
+            //console.log("addUserLocation lat: " + lat);
+
+            const center = MAPBOX.MercatorCoordinate.fromLngLat(
+                { ...this.center },
+                0
+            );
+
+            const units = center.meterInMercatorCoordinateUnits();
+            const model = MAPBOX.MercatorCoordinate.fromLngLat({ lng, lat }, 0);
+            model.x /= units;
+            model.y /= units;
+            center.x /= units;
+            center.y /= units;
+
+            //console.log("ASSET center.x: " + center.x + " center.y: " + center.y);
+            //console.log("ASSET model.x: " + model.x + " model.y: " + model.y);
+
+            label.position.set(model.x - center.x, 0, model.y - center.y);
+
+            //console.log("ASSET LABEL POSITION: " + label.position.x);
+
+            this.components.scene.get().add(label);
+            this.labels[id] = label;
+
+            this.map.flyTo({
+                center: [lng, lat],
+                essential: true // this animation is considered essential with respect to prefers-reduced-motion
+            });
+        }
+
+    }
+
+    //Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
+    async addBuilding(user: User) {
+        const { lat, lng } = this.clickedCoordinates;
+        const userID = user.uid;
+        const building = { userID, lat, lng, uid: "" };
+        building.uid = await this.database.addBuilding(building);
+        this.addBuildingToScene([building]);
+    }
+
+
+    private addBuildingToScene(buildings: Building[]) {
         for (const building of buildings) {
 
             const { uid, lng, lat } = building;
             const htmlElement = this.createHTMLElement("🏥");
             const label = new CSS2DObject(htmlElement);
 
-            //console.log("addToScene lng: " + lng);
-            //console.log("addToScene lat: " + lat);
+            console.log("addToScene lng: " + lng);
+            console.log("addToScene lat: " + lat);
 
             const center = MAPBOX.MercatorCoordinate.fromLngLat(
                 { ...this.center },
@@ -190,7 +217,7 @@ export class MapScene {
 
             label.position.set(model.x - center.x, 0, model.y - center.y);
 
-            //console.log("BUILDING LABEL POSITION: " + label.position.x);
+            console.log("BUILDING LABEL POSITION: " + label.position.x);
 
             this.components.scene.get().add(label);
             this.labels[uid] = label;

@@ -15,7 +15,7 @@ export const executeCore = async (action: Action) => {
 
     if (action.type === "START_MAP") {
         const { container, user } = action.payload;
-        return mapHandler.start(container);
+        return mapHandler.start(container, user);
     }
 
     if (action.type === "REMOVE_MAP") {

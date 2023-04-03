@@ -5,11 +5,13 @@ export const mapHandler = {
 
     viewer: null as MapScene | null,
 
-    start(container: HTMLDivElement) {
+    async start(container: HTMLDivElement, user: User) {
         if (!this.viewer) {
 
             console.log("Map started!");
             this.viewer = new MapScene(container);
+            await this.viewer.getAllBuildings(user);
+            await this.viewer.getAllAssets(user);
         }
 
     },
@@ -33,7 +35,7 @@ export const mapHandler = {
     scanAsset(user: User) {
         if (this.viewer) {
             console.log("map-handler scan");
-            this.viewer.userLocation(user);
+            this.viewer.addAsset(user);
         }
     },
 }
