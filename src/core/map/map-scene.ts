@@ -113,7 +113,7 @@ export class MapScene {
             console.log("userLocation lng: " + longitud);
             console.log("userLocation lat: " + latitud);
 
-            const { lat, lng } = { lat: longitud, lng: latitud };
+            const { lat, lng } = { lat: latitud, lng: longitud };
 
             const asset = { id: "", lat, lng };
             this.addUserLocation(asset);
@@ -127,14 +127,30 @@ export class MapScene {
         console.log("ADDUSERLOCATION");
 
         const { id, lng, lat } = asset;
+        const htmlElement = this.createHTMLElement("🚩");
+        const label = new CSS2DObject(htmlElement);
 
         console.log("addUserLocation lng: " + lng);
         console.log("addUserLocation lat: " + lat);
 
-        const htmlElement = this.createHTMLElement("🚩");
-        const label = new CSS2DObject(htmlElement);
+        const center = MAPBOX.MercatorCoordinate.fromLngLat(
+            { ...this.center },
+            0
+        );
 
-        label.position.set(lng, 0, lat);
+        const units = center.meterInMercatorCoordinateUnits();
+        const model = MAPBOX.MercatorCoordinate.fromLngLat({ lng, lat }, 0);
+        model.x /= units;
+        model.y /= units;
+        center.x /= units;
+        center.y /= units;
+
+        console.log("ASSET center.x: " + center.x + " center.y: " + center.y);
+        console.log("ASSET model.x: " + model.x + " model.y: " + model.y);
+
+        label.position.set(model.x - center.x, 0, model.y - center.y);
+
+        console.log("ASSET LABEL POSITION: " + label.position.x);
 
         this.components.scene.get().add(label);
         this.labels[id] = label;
@@ -165,7 +181,12 @@ export class MapScene {
             center.x /= units;
             center.y /= units;
 
+            console.log("BUILDING center.x: " + center.x + " center.y: " + center.y);
+            console.log("BUILDING model.x: " + model.x + " model.y: " + model.y);
+
             label.position.set(model.x - center.x, 0, model.y - center.y);
+
+            console.log("BUILDING LABEL POSITION: " + label.position.x);
 
             this.components.scene.get().add(label);
             this.labels[uid] = label;
