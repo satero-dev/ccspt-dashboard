@@ -29,8 +29,15 @@
 
 .gis-button-container {
   display: flex;
+}
+
+.container-background {
+  display: flex;
   margin: 1rem;
   flex-direction: column;
-  max-width: 150px;
+  width: 300px;
   gap: 10px;
+  background-color: white;
+  z-index: 400000;
+  padding: 10px;
 }

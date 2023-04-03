@@ -145,8 +145,6 @@ export class MapScene {
             const htmlElement = this.createHTMLElement("🚩");
             const label = new CSS2DObject(htmlElement);
 
-            console.log("addUserLocation perico: " + id);
-
             //console.log("addUserLocation lng: " + lng);
             //console.log("addUserLocation lat: " + lat);
 
