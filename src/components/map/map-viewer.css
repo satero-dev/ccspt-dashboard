@@ -26,3 +26,11 @@
 .overlay p {
   padding: 8px;
 }
+
+.gis-button-container {
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
+  max-width: 150px;
+  gap: 10px;
+}

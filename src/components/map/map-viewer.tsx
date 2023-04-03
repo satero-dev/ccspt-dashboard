@@ -2,6 +2,9 @@ import { Button } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router";
 import { useAppContext } from "../../middleware/context-provider";
+import LogoutIcon from "@mui/icons-material/Logout";
+import DomainAddIcon from '@mui/icons-material/DomainAdd';
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import "./map-viewer.css";
 import "./scanner.css";
 
@@ -111,10 +114,13 @@ export const MapViewer = ({ children }: Props) => {
                 </>
 
             )}
+            <div className="gis-button-container">
+                <Button variant="contained" startIcon={<DocumentScannerIcon />} onClick={onScan}>Escanear</Button>
+                <Button variant="contained" startIcon={<DomainAddIcon />} onClick={onToggleCreate}>Edificio</Button>
+                <Button variant="contained" startIcon={<LogoutIcon />} onClick={onLogout}>Logout</Button>
 
-            <Button variant="contained" onClick={onLogout}>Log out</Button>
-            <Button variant="contained" onClick={onToggleCreate}>Create building</Button>
-            <Button variant="contained" onClick={onScan}>Scan</Button>
+
+            </div>
 
         </>
     );
