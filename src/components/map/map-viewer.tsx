@@ -60,13 +60,14 @@ export const MapViewer = ({ children }: Props) => {
     const onScan = () => {
 
         setIsScanning(true);
-
         console.log("Pulsamos botón Scan");
         //dispatch({ type: "OPEN_SCAN" });
         dispatch({ type: "SCAN_ASSET" });
 
+    }
 
-
+    const onChangeSearch = () => {
+        console.log("cambio");
     }
 
     useEffect(() => {
@@ -153,7 +154,9 @@ export const MapViewer = ({ children }: Props) => {
                         disablePortal
                         id="country-select-demo"
                         options={datos}
+                        onChange={onChangeSearch}
                         autoHighlight
+                        blurOnSelect
                         getOptionLabel={(datos) => datos.id}
                         renderOption={(props, data) => (
                             <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
