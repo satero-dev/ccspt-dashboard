@@ -45,12 +45,27 @@ export class MapScene {
         const buildings = await this.database.getBuildings(user);
         if (!this.components) return;
         this.addBuildingToScene(buildings);
+        console.log("BUILDINGS: " + buildings[0].uid);
     }
 
     async getAllAssets(user: User) {
+
+        console.log("ALL USERS");
+
         const assets = await this.database.getAssets(user);
+
+        for (const asset of assets) {
+            const { id } = asset;
+            //console.log("assets: " + id);
+        }
+
         if (!this.components) return;
         this.addAssetToScene(assets);
+    }
+
+    async updateData(data: string) {
+        console.log("MAP-SCENE: " + data);
+        return "cordiales";
     }
 
 
@@ -111,7 +126,7 @@ export class MapScene {
 
     async addAsset(user: User) {
 
-        console.log("INTENTOLO")
+        //console.log("INTENTOLO")
 
         let longitud = 0;
         let latitud = 0;
@@ -129,9 +144,10 @@ export class MapScene {
     async datos(longitud: number, latitud: number) {
 
         const { lat, lng } = { lat: latitud, lng: longitud };
-
-        const asset = { id: "", lat, lng };
+        const tipo = "Asset";
+        const asset = { autoID: "", id: "", lat, lng, tipo };
         asset.id = await this.database.addAsset(asset);
+
         this.addAssetToScene([asset]);
 
 
@@ -139,7 +155,7 @@ export class MapScene {
 
     private addAssetToScene(assets: Asset[]) {
         for (const asset of assets) {
-            console.log("ADDUSERLOCATION");
+            //console.log("ADDUSERLOCATION");
 
             const { id, lng, lat } = asset;
             const htmlElement = this.createHTMLElement("🚩");
@@ -181,8 +197,10 @@ export class MapScene {
     //Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
     async addBuilding(user: User) {
         const { lat, lng } = this.clickedCoordinates;
+        const id = "Nombre";
+        const tipo = "Edificio";
         const userID = user.uid;
-        const building = { userID, lat, lng, uid: "" };
+        const building = { autoID: "", id, userID, lat, lng, uid: "", tipo };
         building.uid = await this.database.addBuilding(building);
         this.addBuildingToScene([building]);
     }
@@ -195,8 +213,8 @@ export class MapScene {
             const htmlElement = this.createHTMLElement("🏥");
             const label = new CSS2DObject(htmlElement);
 
-            console.log("addToScene lng: " + lng);
-            console.log("addToScene lat: " + lat);
+            /*console.log("addToScene lng: " + lng);
+            console.log("addToScene lat: " + lat);*/
 
             const center = MAPBOX.MercatorCoordinate.fromLngLat(
                 { ...this.center },
@@ -215,7 +233,7 @@ export class MapScene {
 
             label.position.set(model.x - center.x, 0, model.y - center.y);
 
-            console.log("BUILDING LABEL POSITION: " + label.position.x);
+            //console.log("BUILDING LABEL POSITION: " + label.position.x);
 
             this.components.scene.get().add(label);
             this.labels[uid] = label;

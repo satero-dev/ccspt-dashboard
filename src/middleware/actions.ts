@@ -1,4 +1,4 @@
-export type ActionType = "LOGIN" | "LOGOUT" | "START_MAP" | "REMOVE_MAP" | "UPDATE_USER" | "OPEN_SCAN" | "SCAN_ASSET" | "ADD_BUILDING";
+export type ActionType = "LOGIN" | "LOGOUT" | "START_MAP" | "REMOVE_MAP" | "UPDATE_USER" | "OPEN_SCAN" | "SCAN_ASSET" | "ADD_BUILDING" | "LOAD_DATA";
 
 export interface Action {
     type: ActionType;

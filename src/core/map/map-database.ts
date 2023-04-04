@@ -16,8 +16,10 @@ export class MapDataBase {
 
     async addBuilding(building: Building) {
         const dbInstance = getFirestore(getApp());
-        const { lat, lng, userID } = building;
+        const { id, tipo, lat, lng, userID } = building;
         const result = await addDoc(collection(dbInstance, this.buildings), {
+            id,
+            tipo,
             lat,
             lng,
             userID,
@@ -36,7 +38,7 @@ export class MapDataBase {
             const unsubscribe = onSnapshot(q, (snapshot) => {
                 const result: Building[] = [];
                 snapshot.docs.forEach((doc) => {
-                    result.push({ ...(doc.data() as Building), uid: doc.id });
+                    result.push({ ...(doc.data() as Building), autoID: doc.id });
                 });
                 unsubscribe();
                 resolve(result);
@@ -46,11 +48,12 @@ export class MapDataBase {
 
     async addAsset(asset: Asset) {
         const dbInstance = getFirestore(getApp());
-        const { lat, lng, id } = asset;
+        const { tipo, lat, lng, id } = asset;
         const result = await addDoc(collection(dbInstance, this.assets), {
             lat,
             lng,
             id,
+            tipo,
         });
         return result.id;
     }
@@ -66,7 +69,7 @@ export class MapDataBase {
             const unsubscribe = onSnapshot(q, (snapshot) => {
                 const result: Asset[] = [];
                 snapshot.docs.forEach((doc) => {
-                    result.push({ ...(doc.data() as Asset), id: doc.id });
+                    result.push({ ...(doc.data() as Asset), autoID: doc.id });
                 });
                 unsubscribe();
                 resolve(result);

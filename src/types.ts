@@ -9,16 +9,21 @@ export interface GisParameters {
 }
 
 export interface Building {
+  autoID: string;
+  id: string;
   uid: string;
   userID: string;
   lat: number;
   lng: number;
+  tipo: string;
 }
 
 export interface Asset {
+  autoID: string;
   id: string;
   lat: number;
   lng: number;
+  tipo: string;
 }
 
 export interface LngLat {

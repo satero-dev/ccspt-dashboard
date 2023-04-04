@@ -8,12 +8,27 @@ export const mapHandler = {
     async start(container: HTMLDivElement, user: User) {
         if (!this.viewer) {
 
+
             console.log("Map started!");
+            console.log("MAPA START: " + user);
             this.viewer = new MapScene(container);
             await this.viewer.getAllBuildings(user);
             await this.viewer.getAllAssets(user);
+
         }
 
+    },
+
+    async loadData(data: string) {
+        if (this.viewer) {
+            console.log("MAP-HANDLER LOAD DATA: " + data);
+            await this.viewer.updateData(data);
+
+            //data = "cordiales";
+
+            //await console.log("MAPA LOAD DATA: " + data);
+            //await this.viewer.getAllAssets(user);
+        }
     },
 
     remove() {

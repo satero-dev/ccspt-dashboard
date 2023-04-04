@@ -36,5 +36,13 @@ export const executeCore = async (action: Action) => {
         mapHandler.addBuilding(action.payload);
     }
 
+    if (action.type === "LOAD_DATA") {
+        let { data } = action.payload;
+        console.log("CORE-HANDLER DATA: " + data);
+        return mapHandler.loadData(data);
+
+        //console.log("LOAD DATA SEARCH: " + action.payload);        
+    }
+
 
 }
