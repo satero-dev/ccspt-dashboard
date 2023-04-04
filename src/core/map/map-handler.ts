@@ -1,4 +1,5 @@
 import { User } from "firebase/auth";
+import { Asset } from "../../types";
 import { MapScene } from "./map-scene";
 
 export const mapHandler = {
@@ -51,6 +52,13 @@ export const mapHandler = {
         if (this.viewer) {
             console.log("map-handler scan");
             this.viewer.addAsset(user);
+        }
+    },
+
+    gotoAsset(asset: Asset) {
+        if (this.viewer) {
+            //console.log("map-handler scan");
+            this.viewer.gotoAsset(asset);
         }
     },
 }

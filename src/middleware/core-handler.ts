@@ -44,5 +44,13 @@ export const executeCore = async (action: Action) => {
         //console.log("LOAD DATA SEARCH: " + action.payload);        
     }
 
+    if (action.type === "GOTO_ASSET") {
+
+        mapHandler.gotoAsset(action.payload);
+
+        console.log("GOTO SEARCH: " + action.payload);
+    }
+
+
 
 }

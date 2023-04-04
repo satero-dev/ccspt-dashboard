@@ -186,12 +186,18 @@ export class MapScene {
             this.components.scene.get().add(label);
             this.labels[id] = label;
 
-            this.map.flyTo({
-                center: [lng, lat],
-                essential: true // this animation is considered essential with respect to prefers-reduced-motion
-            });
+
         }
 
+    }
+
+    async gotoAsset(asset: Asset) {
+
+
+        this.map.flyTo({
+            center: [asset.lng, asset.lat],
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
     }
 
     //Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio

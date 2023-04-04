@@ -1,4 +1,4 @@
-import { Button, TextField, Autocomplete, Box } from "@mui/material";
+import { Button, TextField, Autocomplete, AutocompleteChangeReason, Box } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router";
 import { useAppContext } from "../../middleware/context-provider";
@@ -7,10 +7,12 @@ import DomainAddIcon from '@mui/icons-material/DomainAdd';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import "./map-viewer.css";
 import "./scanner.css";
-import { Asset } from "../../types";
+import { Asset, LngLat } from "../../types";
 
 
 import { MapDataBase } from "../../core/map/map-database";
+import { Event } from "openbim-components";
+import { FieldValue } from "firebase/firestore";
 
 
 type Props = {
@@ -66,8 +68,12 @@ export const MapViewer = ({ children }: Props) => {
 
     }
 
-    const onChangeSearch = () => {
-        console.log("cambio");
+    const handleChange = (event: React.SyntheticEvent, value: any) => {
+        //console.log("HOLA: " + event.currentTarget.textContent);
+        console.log("autoID: " + value.autoID);
+        const coordenadas: LngLat = { lat: value.lat, lng: value.lng };
+
+        dispatch({ type: "GOTO_ASSET", payload: coordenadas });
     }
 
     useEffect(() => {
@@ -150,14 +156,19 @@ export const MapViewer = ({ children }: Props) => {
 
             <div className="gis-button-container">
                 <div className="container-background">
+
                     <Autocomplete
+
+                        isOptionEqualToValue={(option, value) => option.id === value.id}
                         disablePortal
                         id="country-select-demo"
                         options={datos}
-                        onChange={onChangeSearch}
                         autoHighlight
                         blurOnSelect
+                        //value={datos}
+                        onChange={(e, datos) => handleChange(e, datos)}
                         getOptionLabel={(datos) => datos.id}
+
                         renderOption={(props, data) => (
                             <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
                                 <img
@@ -194,6 +205,10 @@ export const MapViewer = ({ children }: Props) => {
 
 
 /*
+
+
+
+
 
 <img
                                     loading="lazy"
