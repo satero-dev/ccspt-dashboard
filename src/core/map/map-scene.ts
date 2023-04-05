@@ -144,8 +144,8 @@ export class MapScene {
     async datos(longitud: number, latitud: number) {
 
         const { lat, lng } = { lat: latitud, lng: longitud };
-        const tipo = "Asset";
-        const asset = { autoID: "", id: "", lat, lng, tipo };
+        const tipo = "Activo";
+        const asset = { autoID: "", id: "Activo nuevo", lat, lng, tipo };
         asset.id = await this.database.addAsset(asset);
 
         this.addAssetToScene([asset]);
