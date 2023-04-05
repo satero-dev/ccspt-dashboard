@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, IconButton, Grid } from "@mui/material"
 import { useAppContext } from "../../middleware/context-provider";
-import { getBottomMenuTools } from "./bottom-menu-tools";
+import { getBottomMenuTools, getBottomMenuUsers } from "./bottom-menu-tools";
 import "./bottom-menu.css"
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
 };
 
 const tools = getBottomMenuTools();
+const users = getBottomMenuUsers();
 
 //Todos los hijos de la lista han de tener una key única https://www.youtube.com/watch?v=edGbVnus5JU
 
@@ -21,15 +22,15 @@ export const BottomMenu = ({ children }: Props) => {
             <Grid className="bottom-menu" gap={2}>
 
                 <Card>
-                    {tools.map((tool) => {
+                    {users.map((user) => {
                         return (
-                            <React.Fragment key={tool.name}>
+                            <React.Fragment key={user.name}>
                                 <IconButton
-                                    color={tool.active ? "primary" : "default"}
-                                    onClick={() => tool.action(dispatch)}
-                                    key={tool.name}
+                                    color={user.active ? "primary" : "default"}
+                                    onClick={() => user.action(dispatch)}
+                                    key={user.name}
                                 >
-                                    {tool.icon}
+                                    {user.icon}
                                 </IconButton>
                             </React.Fragment>
 
