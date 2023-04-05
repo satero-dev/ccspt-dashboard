@@ -1,5 +1,5 @@
 .search-menu {
-  background-color: white;
+  /*background-color: white;*/
   position: absolute;
   top: 1rem;
   left: 50%;
@@ -7,4 +7,5 @@
   display: flex;
   align-items: center;
   z-index: 10000000;
+  font-size: small;
 }

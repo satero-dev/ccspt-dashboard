@@ -15,11 +15,11 @@ export const SearchMenu = ({ datos }: any) => {
 
     return (
         <div className="search-menu">
-            <Autocomplete
+            <Autocomplete sx={{ background: "#FFF", width: 300 }}
 
                 isOptionEqualToValue={(option, value) => option.id === value.id}
                 disablePortal
-                id="country-select-demo"
+                id="fly-to-asset"
                 options={datos || []}
                 autoHighlight
                 blurOnSelect
@@ -28,7 +28,9 @@ export const SearchMenu = ({ datos }: any) => {
 
 
                 renderOption={(props: object, data: any) => (
-                    <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+                    <Box component="li"
+                        {...props}
+                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }} >
                         <img
                             loading="lazy"
                             width="20"
@@ -39,8 +41,14 @@ export const SearchMenu = ({ datos }: any) => {
                     </Box>
                 )}
                 renderInput={(params) => (
-                    <TextField sx={{ width: 400 }}
+                    <TextField
                         {...params}
+                        sx={{
+                            '& .MuiAutocomplete-input, & .MuiInputLabel-root': {
+                                fontSize: 16,
+                                height: 20,
+                            }
+                        }}
                         label="Buscar"
                         inputProps={{
                             ...params.inputProps,
