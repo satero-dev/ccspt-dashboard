@@ -49,7 +49,7 @@ export const SearchMenu = ({ datos }: any) => {
                         sx={{
                             '& .MuiAutocomplete-input, & .MuiInputLabel-root': {
                                 fontSize: 14,
-                                height: 14,
+                                height: 16,
                                 margin: 0,
                             }
                         }}
