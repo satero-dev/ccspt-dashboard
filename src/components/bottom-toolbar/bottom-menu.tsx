@@ -38,7 +38,7 @@ export const BottomMenu = ({ children }: Props) => {
                     })}
                 </Card>
 
-                <Card>
+                <Card className="bottom-menu-content">
                     {tools.map((tool) => {
                         return (
                             <React.Fragment key={tool.name}>
