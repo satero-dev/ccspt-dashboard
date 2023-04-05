@@ -1,4 +1,4 @@
-import { Button, TextField, Autocomplete, AutocompleteChangeReason, Box } from "@mui/material";
+import { Button, TextField, Autocomplete, Box } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router";
 import { useAppContext } from "../../middleware/context-provider";
@@ -13,6 +13,8 @@ import { Asset, LngLat } from "../../types";
 import { MapDataBase } from "../../core/map/map-database";
 import { Event } from "openbim-components";
 import { FieldValue } from "firebase/firestore";
+import { BottomMenu } from "../bottom-toolbar/bottom-menu";
+import { SearchMenu } from "../search-toolbar/search-menu";
 
 
 type Props = {
@@ -68,13 +70,6 @@ export const MapViewer = ({ children }: Props) => {
 
     }
 
-    const handleChange = (event: React.SyntheticEvent, value: any) => {
-        //console.log("HOLA: " + event.currentTarget.textContent);
-        console.log("autoID: " + value.autoID);
-        const coordenadas: LngLat = { lat: value.lat, lng: value.lng };
-
-        dispatch({ type: "GOTO_ASSET", payload: coordenadas });
-    }
 
     useEffect(() => {
         const container = containerRef.current;
@@ -154,50 +149,12 @@ export const MapViewer = ({ children }: Props) => {
 
 
 
-            <div className="gis-button-container">
-                <div className="container-background">
 
-                    <Autocomplete
 
-                        isOptionEqualToValue={(option, value) => option.id === value.id}
-                        disablePortal
-                        id="country-select-demo"
-                        options={datos}
-                        autoHighlight
-                        blurOnSelect
-                        //value={datos}
-                        onChange={(e, datos) => handleChange(e, datos)}
-                        getOptionLabel={(datos) => datos.id}
 
-                        renderOption={(props, data) => (
-                            <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                                <img
-                                    loading="lazy"
-                                    width="20"
-                                    src={`./${data.tipo}.png`}
-                                    alt=""
-                                />
-                                {data.id}
-                            </Box>
-                        )}
-                        renderInput={(params) => (
-                            <TextField
-                                {...params}
-                                label="Buscar"
-                                inputProps={{
-                                    ...params.inputProps,
-                                    autoComplete: 'new-password', // disable autocomplete and autofill
-                                }}
-                            />
-                        )}
-                    />
 
-                    <Button variant="contained" startIcon={<DocumentScannerIcon />} onClick={onScan}>Escanear</Button>
-                    <Button variant="contained" startIcon={<DomainAddIcon />} onClick={onToggleCreate}>Edificio</Button>
-                    <Button variant="contained" startIcon={<LogoutIcon />} onClick={onLogout}>Logout</Button>
-                </div>
-
-            </div>
+            <BottomMenu />
+            <SearchMenu datos={datos} />
 
         </>
     );
@@ -206,28 +163,11 @@ export const MapViewer = ({ children }: Props) => {
 
 /*
 
+<div className="bottom-toolbar">
+                <Button variant="contained" startIcon={<DocumentScannerIcon />} onClick={onScan}></Button>
+                <Button variant="contained" startIcon={<DomainAddIcon />} onClick={onToggleCreate}></Button>
+                <Button variant="contained" startIcon={<LogoutIcon />} onClick={onLogout}></Button>
+            </div>
 
 
-
-
-<img
-                                    loading="lazy"
-                                    width="20"
-                                    src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                                    srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                                    alt=""
-                                />
-
-                                
-<div className="overlay">
-                    <div className="scanner">
-                        <p className="scanner-exit" onClick={onScanClose}>X</p>
-                        <div className="scanner-container">
-                            <img src="spinner.gif" alt="spinning log" className="scanner-image" />
-                            <p className="scanner-text">
-                                Scanning...
-                            </p>
-                        </div>
-                    </div>
-                </div>
 */

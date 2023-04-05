@@ -30,3 +30,10 @@ export interface LngLat {
   lng: number;
   lat: number;
 }
+
+export interface Tool {
+  name: string;
+  active: boolean;
+  icon: any;
+  action: (...args: any) => void;
+}
