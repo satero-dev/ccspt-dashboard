@@ -147,7 +147,6 @@ export const MapViewer = ({ children }: Props) => {
 
             )}
 
-
             <BottomMenu />
             <SearchMenu datos={datos} />
 
