@@ -54,6 +54,23 @@ export const BottomMenu = ({ children }: Props) => {
                         );
                     })}
                 </Card>
+
+                <Card>
+                    {users.map((user) => {
+                        return (
+                            <React.Fragment key={user.name}>
+                                <IconButton
+                                    color={user.active ? "primary" : "default"}
+                                    onClick={() => user.action(dispatch)}
+                                    key={user.name}
+                                >
+                                    {user.icon}
+                                </IconButton>
+                            </React.Fragment>
+
+                        );
+                    })}
+                </Card>
             </Grid>
         </>
     );

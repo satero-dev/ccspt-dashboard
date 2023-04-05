@@ -15,7 +15,10 @@ export const SearchMenu = ({ datos }: any) => {
 
     return (
         <div className="search-menu">
-            <Autocomplete sx={{ background: "#FFF", width: 300 }}
+            <Autocomplete sx={{
+                background: "#FFF",
+                width: 250,
+            }}
 
                 isOptionEqualToValue={(option, value) => option.id === value.id}
                 disablePortal
@@ -45,8 +48,9 @@ export const SearchMenu = ({ datos }: any) => {
                         {...params}
                         sx={{
                             '& .MuiAutocomplete-input, & .MuiInputLabel-root': {
-                                fontSize: 16,
-                                height: 20,
+                                fontSize: 14,
+                                height: 14,
+                                margin: 0,
                             }
                         }}
                         label="Buscar"
