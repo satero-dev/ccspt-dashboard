@@ -1,7 +1,7 @@
-import { Card, TextField, Autocomplete, Box, IconButton } from "@mui/material"
+import { Card, TextField, Autocomplete, Box, IconButton, createFilterOptions } from "@mui/material"
 import { useAppContext } from "../../middleware/context-provider";
 import "./search-menu.css"
-import { LngLat } from "../../types";
+import { Asset, LngLat } from "../../types";
 
 
 export const SearchMenu = ({ datos }: any) => {
@@ -12,6 +12,28 @@ export const SearchMenu = ({ datos }: any) => {
         const coordenadas: LngLat = { lat: value.lat, lng: value.lng };
         dispatch({ type: "GOTO_ASSET", payload: coordenadas });
     }
+
+    /*const filterOptions = createFilterOptions({
+        matchFrom: 'any',
+        stringify: (option: any) => option.id,
+    });*/
+
+    const filterOptions = (datos: any, state: { inputValue: string }) => {
+        const filteredOptions = datos.filter((data: any) => {
+
+            //console.log("datos: " + datos);
+            const optionLabel = data.id.toLowerCase();
+            //console.log("optionLabel: " + optionLabel);
+            const inputText = state.inputValue.toLowerCase();
+            //console.log("inputText: " + inputText);
+            const inputTerms = inputText.split(" ");
+            //console.log("inputTerms: " + inputTerms);
+            /*return true;*/
+            return inputTerms.every((term) => optionLabel.includes(term));
+        });
+
+        return filteredOptions;
+    };
 
     return (
         <div className="search-menu">
@@ -24,11 +46,12 @@ export const SearchMenu = ({ datos }: any) => {
                 disablePortal
                 id="fly-to-asset"
                 options={datos || []}
+                //getOptionLabel={(option) => option.label}
+                filterOptions={filterOptions}
                 autoHighlight
                 blurOnSelect
                 onChange={(e, datos) => handleChange(e, datos)}
-                getOptionLabel={(datos) => datos?.id || ''}
-
+                getOptionLabel={(data) => data?.id || ''}
 
                 renderOption={(props: object, data: any) => (
                     <Box component="li"
