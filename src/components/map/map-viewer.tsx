@@ -23,7 +23,6 @@ type Props = {
 
 export const MapViewer = ({ children }: Props) => {
 
-
     const [state, dispatch] = useAppContext();  //Recuperamos el estado del usuario    
     const containerRef = useRef(null);  //Lugar donde se muestra la información
 
@@ -75,8 +74,6 @@ export const MapViewer = ({ children }: Props) => {
         const container = containerRef.current;
         if (container && user) {
             dispatch({ type: "START_MAP", payload: { container, user } });
-            //dispatch({ type: "LOAD_DATA", payload: { data } });
-            //console.log("MENSAJE 2: " + data);
 
             let database = new MapDataBase();
 

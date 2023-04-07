@@ -7,6 +7,7 @@ import DomainAddIcon from '@mui/icons-material/DomainAdd';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 
 import PersonIcon from '@mui/icons-material/Person';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
 
 export function getBottomMenuUsers(): Tool[] {
@@ -20,6 +21,7 @@ export function getBottomMenuUsers(): Tool[] {
                 const user = findUser("User Options");
                 deactivateAllUsers(dispatch, "User Options");
                 user.active = !user.active;
+
                 //dispatch({ type: "LOGOUT" });
                 //dispatch({ type: "TOGGLE_CLIPPER", payload: tool.active });
             },
@@ -42,6 +44,43 @@ export function getBottomMenuUsers(): Tool[] {
 
     return users;
 }
+
+export function getBottomMenuFullscreen(): Tool[] {
+
+
+    const fullscreen = [
+        {
+            name: "Fullscreen",
+            icon: <FullscreenIcon />,
+            active: false,
+            action: (dispatch: any) => {
+                const user = findUser("Fullscreen");
+                deactivateAllUsers(dispatch, "Fullscreen");
+                user.active = !user.active;
+                //dispatch({ type: "LOGOUT" });
+                //dispatch({ type: "TOGGLE_CLIPPER", payload: tool.active });
+            },
+        },
+    ];
+
+
+    const findUser = (name: string) => {
+        const fs = fullscreen.find((fs) => fs.name === name);
+        if (!fs) throw new Error("Tool not found!");
+        return fs;
+    };
+
+    const deactivateAllUsers = (dispatch: any, name: string) => {
+        for (const fs of fullscreen) {
+            if (fs.active && fs.name !== name) {
+                fs.action(dispatch);
+            }
+        }
+    };
+
+    return fullscreen;
+}
+
 
 
 export function getBottomMenuTools(): Tool[] {

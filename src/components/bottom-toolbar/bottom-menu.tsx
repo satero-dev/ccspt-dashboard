@@ -1,8 +1,12 @@
 import React from "react";
 import { Card, IconButton, Grid } from "@mui/material"
 import { useAppContext } from "../../middleware/context-provider";
-import { getBottomMenuTools, getBottomMenuUsers } from "./bottom-menu-tools";
+import { getBottomMenuFullscreen, getBottomMenuTools, getBottomMenuUsers } from "./bottom-menu-tools";
 import "./bottom-menu.css"
+
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+
+import FullscreenMode from './Fullscreen';
 
 type Props = {
     children?: React.ReactNode;
@@ -10,6 +14,7 @@ type Props = {
 
 const tools = getBottomMenuTools();
 const users = getBottomMenuUsers();
+const fullscreen = getBottomMenuFullscreen();
 
 //Todos los hijos de la lista han de tener una key única https://www.youtube.com/watch?v=edGbVnus5JU
 
@@ -56,16 +61,10 @@ export const BottomMenu = ({ children }: Props) => {
                 </Card>
 
                 <Card>
-                    {users.map((user) => {
+                    {fullscreen.map((fs) => {
                         return (
-                            <React.Fragment key={user.name}>
-                                <IconButton
-                                    color={user.active ? "primary" : "default"}
-                                    onClick={() => user.action(dispatch)}
-                                    key={user.name}
-                                >
-                                    {user.icon}
-                                </IconButton>
+                            <React.Fragment key={fs.name}>
+                                <FullscreenMode />
                             </React.Fragment>
 
                         );

@@ -45,12 +45,9 @@ export class MapScene {
         const buildings = await this.database.getBuildings(user);
         if (!this.components) return;
         this.addBuildingToScene(buildings);
-        console.log("BUILDINGS: " + buildings[0].uid);
     }
 
     async getAllAssets(user: User) {
-
-        console.log("ALL USERS");
 
         const assets = await this.database.getAssets(user);
 
