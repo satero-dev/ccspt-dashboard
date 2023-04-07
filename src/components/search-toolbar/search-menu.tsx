@@ -22,7 +22,7 @@ export const SearchMenu = ({ datos }: any) => {
         const filteredOptions = datos.filter((data: any) => {
 
             //console.log("datos: " + datos);
-            const optionLabel = data.id.toLowerCase();
+            const optionLabel = data.id.toLowerCase() + data.autoID.toLowerCase();
             //console.log("optionLabel: " + optionLabel);
             const inputText = state.inputValue.toLowerCase();
             //console.log("inputText: " + inputText);
@@ -46,7 +46,6 @@ export const SearchMenu = ({ datos }: any) => {
                 disablePortal
                 id="fly-to-asset"
                 options={datos || []}
-                //getOptionLabel={(option) => option.label}
                 filterOptions={filterOptions}
                 autoHighlight
                 blurOnSelect
@@ -63,7 +62,10 @@ export const SearchMenu = ({ datos }: any) => {
                             src={`./${data.tipo}.png`}
                             alt=""
                         />
-                        {data.id}
+                        <div className="options">{data.id}
+                            <div className="sub-options">{data.autoID}</div>
+                        </div>
+
                     </Box>
                 )}
                 renderInput={(params) => (

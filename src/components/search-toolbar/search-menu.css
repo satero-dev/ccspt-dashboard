@@ -9,3 +9,15 @@
   z-index: 10000000;
   font-size: small;
 }
+
+.options {
+  display: block;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.sub-options {
+  display: block;
+  font-size: small;
+  font-weight: 300;
+}
