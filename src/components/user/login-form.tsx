@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppContext } from "../../middleware/context-provider";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { Navigate } from "react-router";
 import { Box } from "@mui/system";
 import "./login-styles.css";
@@ -33,12 +33,18 @@ export const LoginForm = ({ children }: Props) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                gap: 1,
+                padding: 0,
             }}
         >
-            <img className="landing-logo" alt="pt logo" src="pt-logo-landing.png" />
+            <img className="landing-logo" alt="pt logo" src="pt-logo-landing.png" width={250} />
 
+            <div className="tf">
+                <TextField id="usuario" label="Usuario" variant="filled" />
+                <TextField id="pass" type="password" label="Contraseña" variant="filled" />
+            </div>
             <Button variant="contained" color="primary" onClick={onLogin}>
-                Accedeix
+                Entrar
             </Button>
         </Box>
     );

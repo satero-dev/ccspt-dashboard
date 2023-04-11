@@ -12,7 +12,7 @@ export let lnglat = [0, 0];
 export class MapScene {
 
     private components = new OBC.Components();
-    private readonly style = "mapbox://styles/mapbox/streets-v12";
+    private readonly style = "mapbox://styles/mapbox/light-v11";
     private map: MAPBOX.Map;
     private center: LngLat = { lat: 0, lng: 0 }; //Centro de la escena
     private clickedCoordinates: LngLat = { lat: 0, lng: 0 };
@@ -103,7 +103,61 @@ export class MapScene {
             }), 'top-right'
         );
 
+
+
         map.on("contextmenu", this.storeMousePosition);
+
+        map.on('style.load', () => {
+            // Insert the layer beneath any symbol layer.
+            const layers = map.getStyle().layers;
+            const labelLayer = layers.find((layer) => layer.type === 'symbol' && layer.layout && layer.layout['text-field']);
+
+            if (labelLayer) {
+                const labelLayerId = labelLayer.id;
+                // code to use labelLayerId here
+                map.addLayer(
+                    {
+                        'id': 'add-3d-buildings',
+                        'source': 'composite',
+                        'source-layer': 'building',
+                        'filter': ['==', 'extrude', 'true'],
+                        'type': 'fill-extrusion',
+                        'minzoom': 15,
+                        'paint': {
+                            'fill-extrusion-color': '#63C7CF',
+
+                            // Use an 'interpolate' expression to
+                            // add a smooth transition effect to
+                            // the buildings as the user zooms in.
+                            'fill-extrusion-height': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                0,
+                                0,
+                                15.05,
+                                ['get', 'height']
+                            ],
+                            'fill-extrusion-base': [
+                                'interpolate',
+                                ['linear'],
+                                ['zoom'],
+                                0,
+                                0,
+                                15.05,
+                                ['get', 'min_height']
+                            ],
+                            'fill-extrusion-opacity': 0.6
+                        }
+                    },
+                    labelLayerId
+                );
+            } else {
+                console.log('Label layer not found');
+            }
+        });
+
+
 
         //console.log(map.getCenter().lat);
         //this.setGeoLocation(map.getCenter().lng, map.getCenter().lat);

@@ -23,13 +23,15 @@ export const SearchMenu = ({ datos }: any) => {
 
             //console.log("datos: " + datos);
             const optionLabel = data.id.toLowerCase() + data.autoID.toLowerCase();
+            const removeAccentsOL = optionLabel.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             //console.log("optionLabel: " + optionLabel);
             const inputText = state.inputValue.toLowerCase();
+            const removeAccentsIT = inputText.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             //console.log("inputText: " + inputText);
-            const inputTerms = inputText.split(" ");
+            const inputTerms = removeAccentsIT.split(" ");
             //console.log("inputTerms: " + inputTerms);
             /*return true;*/
-            return inputTerms.every((term) => optionLabel.includes(term));
+            return inputTerms.every((term) => removeAccentsOL.includes(term));
         });
 
         return filteredOptions;
