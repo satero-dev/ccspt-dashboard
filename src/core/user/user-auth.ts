@@ -9,6 +9,7 @@ export const userAuth = {
 
         let user = "satero@tauli.cat";
         let pass = "T0t0r0!!";
+        //let pass = "B14nd3ng3";
 
         signInWithEmailAndPassword(auth, user, pass)
             .then((userCredential) => {

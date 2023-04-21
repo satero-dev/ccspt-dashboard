@@ -26,6 +26,16 @@ const firebaseConfig = {
   measurementId: "G-F4CCNR7WJN",
 };
 
+/*const firebaseConfig = {
+  apiKey: "AIzaSyAovjE8Cjga7hrI_fVbteXP_lsiqoj6CKQ",
+  authDomain: "ccspt-asset-tracker.firebaseapp.com",
+  projectId: "ccspt-asset-tracker",
+  storageBucket: "ccspt-asset-tracker.appspot.com",
+  messagingSenderId: "562874745571",
+  appId: "1:562874745571:web:0b3aaeeab4704b473abbd6",
+  measurementId: "G-00CXN6JPYS"
+};*/
+
 // Initialize Firebase
 initializeApp(firebaseConfig);
 root.render(

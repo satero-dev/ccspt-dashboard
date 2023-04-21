@@ -3,8 +3,9 @@ import { mapHandler } from "../core/map/map-handler";
 import { userAuth } from "../core/user/user-auth";
 import { Action } from "./actions";
 import { scanHandler } from "../core/scanner/scan-handler";
+import { Events } from "./event-handler";
 
-export const executeCore = async (action: Action) => {
+export const executeCore = async (action: Action, events: Events) => {
     if (action.type === "LOGIN") {
         return userAuth.login(action);
     }
@@ -15,7 +16,7 @@ export const executeCore = async (action: Action) => {
 
     if (action.type === "START_MAP") {
         const { container, user } = action.payload;
-        return mapHandler.start(container, user);
+        return mapHandler.start(container, user, events);
     }
 
     if (action.type === "REMOVE_MAP") {

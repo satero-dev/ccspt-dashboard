@@ -7,6 +7,8 @@ export type ActionType =
     "OPEN_SCAN" |
     "SCAN_ASSET" |
     "ADD_BUILDING" |
+    "OPEN_BUILDING" |
+    "CLOSE_BUILDING" |
     "LOAD_DATA" |
     "GOTO_ASSET"
 

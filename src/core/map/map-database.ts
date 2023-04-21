@@ -28,22 +28,29 @@ export class MapDataBase {
     }
 
     async getBuildings(user: User) {
+
         const dbInstance = getFirestore(getApp());
         const q = query(
             collection(dbInstance, this.buildings),
             where("userID", "==", user.uid)
         );
 
+
+
         return new Promise<Building[]>((resolve) => {
             const unsubscribe = onSnapshot(q, (snapshot) => {
                 const result: Building[] = [];
+
                 snapshot.docs.forEach((doc) => {
                     result.push({ ...(doc.data() as Building), autoID: doc.id });
+
                 });
                 unsubscribe();
                 resolve(result);
             });
         });
+
+
     }
 
     async addAsset(asset: Asset) {

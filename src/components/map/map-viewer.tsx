@@ -26,7 +26,7 @@ export const MapViewer = ({ children }: Props) => {
     const [state, dispatch] = useAppContext();  //Recuperamos el estado del usuario    
     const containerRef = useRef(null);  //Lugar donde se muestra la información
 
-    const { user } = state;
+    const { user, building } = state;
 
 
     const [isCreatingBuilding, setIsCreatingBuilding] = useState(false);
@@ -106,6 +106,12 @@ export const MapViewer = ({ children }: Props) => {
         return <Navigate to="/login" />;
     }
 
+    console.log("BUILDING: " + building);
+
+    if (building) {
+        const url = `/building?id=${building}`;
+        return <Navigate to={url} />
+    }
 
     return (
         <>

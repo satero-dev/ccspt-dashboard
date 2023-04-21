@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { User } from "firebase/auth";
 import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
 import { MapDataBase } from "./map-database";
+import { Events } from "../../middleware/event-handler";
 
 export let lnglat = [0, 0];
 
@@ -18,9 +19,11 @@ export class MapScene {
     private clickedCoordinates: LngLat = { lat: 0, lng: 0 };
     private labels: { [id: string]: CSS2DObject } = {};
     private database = new MapDataBase();
+    private events: Events;
 
 
-    constructor(container: HTMLDivElement) {
+    constructor(container: HTMLDivElement, events: Events) {
+        this.events = events;
         const config = this.getConfig(container);
         //const [isCreatingBuilding, setIsCreatingBuilding] = useState(false);
         this.map = this.createMap(config);
@@ -112,7 +115,7 @@ export class MapScene {
             const layers = map.getStyle().layers;
             const labelLayer = layers.find((layer) => layer.type === 'symbol' && layer.layout && layer.layout['text-field']);
 
-            if (labelLayer) {
+            /*if (labelLayer) {
                 const labelLayerId = labelLayer.id;
                 // code to use labelLayerId here
                 map.addLayer(
@@ -154,7 +157,7 @@ export class MapScene {
                 );
             } else {
                 console.log('Label layer not found');
-            }
+            }*/
         });
 
 
@@ -209,7 +212,7 @@ export class MapScene {
             //console.log("ADDUSERLOCATION");
 
             const { id, lng, lat } = asset;
-            const htmlElement = this.createHTMLElement("🚩");
+            const htmlElement = this.createHTMLElement("🚩", id);
             const label = new CSS2DObject(htmlElement);
 
             //console.log("addUserLocation lng: " + lng);
@@ -244,7 +247,6 @@ export class MapScene {
 
     async gotoAsset(asset: Asset) {
 
-
         this.map.flyTo({
             center: [asset.lng, asset.lat],
             essential: true // this animation is considered essential with respect to prefers-reduced-motion
@@ -266,8 +268,8 @@ export class MapScene {
     private addBuildingToScene(buildings: Building[]) {
         for (const building of buildings) {
 
-            const { uid, lng, lat } = building;
-            const htmlElement = this.createHTMLElement("🏥");
+            const { id, lng, lat } = building;
+            const htmlElement = this.createHTMLElement("🏥", id);
             const label = new CSS2DObject(htmlElement);
 
             /*console.log("addToScene lng: " + lng);
@@ -293,16 +295,20 @@ export class MapScene {
             //console.log("BUILDING LABEL POSITION: " + label.position.x);
 
             this.components.scene.get().add(label);
-            this.labels[uid] = label;
+            this.labels[id] = label;
 
         }
     }
 
-    private createHTMLElement(content: string) {
+    private createHTMLElement(content: string, id: string) {
 
         //console.log("PONIENDO LA PICA");
         const div = document.createElement("div");
+        //div.textContent = id;
         div.textContent = content;
+        div.onclick = () => {
+            this.events.trigger({ type: "OPEN_BUILDING", payload: id });
+        }
         div.classList.add("thumbnail");
         return div;
     }
