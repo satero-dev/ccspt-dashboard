@@ -1,7 +1,11 @@
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "@firebase/auth";
 import { Action } from "../../middleware/actions"
+import { Events } from "../../middleware/event-handler";
+import { Building } from "../../types";
+import { deleteDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
+import { getApp } from "firebase/app";
 
-export const userAuth = {
+export const dataBaseHandler = {
     login: (action: Action) => {
         const auth = getAuth();
         //let user = action.payload.user;
@@ -30,5 +34,19 @@ export const userAuth = {
     logout: (action: Action) => {
         const auth = getAuth();
         signOut(auth);
+    },
+
+    deleteBuilding: async (building: Building, events: Events) => {
+
+        const dbInstance = getFirestore(getApp());
+        await deleteDoc(doc(dbInstance, "buildings", building.uid));
+        events.trigger({ type: "CLOSE_BUILDING" });
+    },
+
+    updateBuilding: async (building: Building) => {
+        const dbInstance = getFirestore(getApp());
+        await updateDoc(doc(dbInstance, "buildings", building.uid), {
+            ...building,
+        })
     },
 };

@@ -109,7 +109,7 @@ export const MapViewer = ({ children }: Props) => {
     console.log("BUILDING: " + building);
 
     if (building) {
-        const url = `/building?id=${building}`;
+        const url = `/building?id=${building.autoID}`;
         return <Navigate to={url} />
     }
 

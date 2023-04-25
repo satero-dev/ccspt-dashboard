@@ -3,7 +3,7 @@ import {
     useReducer,
     useContext,
 } from "react";
-import { Action } from "./actions";
+import { Action, ActionList } from "./actions";
 import { reducer } from "./state-handler";
 import { initialState, State } from "./state";
 import { Authenticator } from "./authenticator";
@@ -24,12 +24,13 @@ export const ContextProvider = ({ children }: Props) => {
     const [state, setState] = useReducer(reducer, initialState);
 
     const events = new Events();
-    events.on("OPEN_BUILDING", (building: string) => {
-        console.log("OPEN BUILDING PRE:" + building);
-        setState({ type: "OPEN_BUILDING", payload: building });
-        console.log("OPEN BUILDING POST: " + building);
 
-    });
+    for (const type of ActionList) {
+        events.on(type, (payload: any) => {
+            setState({ type, payload });
+        });
+    }
+
 
     const dispatch = (value: Action) => {
         setState(value);

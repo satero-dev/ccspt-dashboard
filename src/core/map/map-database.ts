@@ -16,9 +16,9 @@ export class MapDataBase {
 
     async addBuilding(building: Building) {
         const dbInstance = getFirestore(getApp());
-        const { id, tipo, lat, lng, userID } = building;
+        const { name, tipo, lat, lng, userID } = building;
         const result = await addDoc(collection(dbInstance, this.buildings), {
-            id,
+            name,
             tipo,
             lat,
             lng,

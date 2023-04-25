@@ -10,7 +10,7 @@ export interface GisParameters {
 
 export interface Building {
   autoID: string;
-  id: string;
+  name: string;
   uid: string;
   userID: string;
   lat: number;

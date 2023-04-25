@@ -1,17 +1,17 @@
 import { SimpleScan } from "../core/scanner/simple-scan";
 import { mapHandler } from "../core/map/map-handler";
-import { userAuth } from "../core/user/user-auth";
+import { dataBaseHandler } from "../core/db/db-handler";
 import { Action } from "./actions";
 import { scanHandler } from "../core/scanner/scan-handler";
 import { Events } from "./event-handler";
 
 export const executeCore = async (action: Action, events: Events) => {
     if (action.type === "LOGIN") {
-        return userAuth.login(action);
+        return dataBaseHandler.login(action);
     }
 
     if (action.type === "LOGOUT") {
-        return userAuth.logout(action);
+        return dataBaseHandler.logout(action);
     }
 
     if (action.type === "START_MAP") {
@@ -36,6 +36,16 @@ export const executeCore = async (action: Action, events: Events) => {
     if (action.type === "ADD_BUILDING") {
         mapHandler.addBuilding(action.payload);
     }
+
+    if (action.type === "DELETE_BUILDING") {
+        dataBaseHandler.deleteBuilding(action.payload, events);
+    }
+
+
+    if (action.type === "UPDATE_BUILDING") {
+        dataBaseHandler.updateBuilding(action.payload);
+    }
+
 
     if (action.type === "LOAD_DATA") {
         let { data } = action.payload;

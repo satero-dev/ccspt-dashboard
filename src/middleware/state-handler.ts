@@ -9,7 +9,7 @@ export const reducer = (state: State, action: Action) => {
         return { ...state, user: action.payload }
     }
 
-    if (action.type === "OPEN_BUILDING") {
+    if (action.type === "OPEN_BUILDING" || action.type === "UPDATE_BUILDING") {
         console.log("OPEN BUILDING FORM STATE-HANDLER");
         return { ...state, building: action.payload }
     }

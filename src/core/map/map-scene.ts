@@ -115,49 +115,7 @@ export class MapScene {
             const layers = map.getStyle().layers;
             const labelLayer = layers.find((layer) => layer.type === 'symbol' && layer.layout && layer.layout['text-field']);
 
-            /*if (labelLayer) {
-                const labelLayerId = labelLayer.id;
-                // code to use labelLayerId here
-                map.addLayer(
-                    {
-                        'id': 'add-3d-buildings',
-                        'source': 'composite',
-                        'source-layer': 'building',
-                        'filter': ['==', 'extrude', 'true'],
-                        'type': 'fill-extrusion',
-                        'minzoom': 15,
-                        'paint': {
-                            'fill-extrusion-color': '#63C7CF',
 
-                            // Use an 'interpolate' expression to
-                            // add a smooth transition effect to
-                            // the buildings as the user zooms in.
-                            'fill-extrusion-height': [
-                                'interpolate',
-                                ['linear'],
-                                ['zoom'],
-                                0,
-                                0,
-                                15.05,
-                                ['get', 'height']
-                            ],
-                            'fill-extrusion-base': [
-                                'interpolate',
-                                ['linear'],
-                                ['zoom'],
-                                0,
-                                0,
-                                15.05,
-                                ['get', 'min_height']
-                            ],
-                            'fill-extrusion-opacity': 0.6
-                        }
-                    },
-                    labelLayerId
-                );
-            } else {
-                console.log('Label layer not found');
-            }*/
         });
 
 
@@ -168,15 +126,6 @@ export class MapScene {
     }
 
 
-
-    /*//Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
-    async addAsset(user: User) {
-        const { lat, lng } = this.clickedCoordinates;
-        const userID = user.uid;
-        const asset = { id: "", lat, lng };
-        asset.id = await this.database.addAsset(asset);
-        this.addUserLocation([asset]);
-    }*/
 
     async addAsset(user: User) {
 
@@ -212,7 +161,7 @@ export class MapScene {
             //console.log("ADDUSERLOCATION");
 
             const { id, lng, lat } = asset;
-            const htmlElement = this.createHTMLElement("🚩", id);
+            const htmlElement = this.createHTMLElementAsset("🚩", asset);
             const label = new CSS2DObject(htmlElement);
 
             //console.log("addUserLocation lng: " + lng);
@@ -256,10 +205,9 @@ export class MapScene {
     //Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
     async addBuilding(user: User) {
         const { lat, lng } = this.clickedCoordinates;
-        const id = "Nombre";
         const tipo = "Edificio";
         const userID = user.uid;
-        const building = { autoID: "", id, userID, lat, lng, uid: "", tipo };
+        const building = { autoID: "", name: "", userID, lat, lng, uid: "", tipo };
         building.uid = await this.database.addBuilding(building);
         this.addBuildingToScene([building]);
     }
@@ -268,8 +216,8 @@ export class MapScene {
     private addBuildingToScene(buildings: Building[]) {
         for (const building of buildings) {
 
-            const { id, lng, lat } = building;
-            const htmlElement = this.createHTMLElement("🏥", id);
+            const { name, lng, lat } = building;
+            const htmlElement = this.createHTMLElement("🏥", building);
             const label = new CSS2DObject(htmlElement);
 
             /*console.log("addToScene lng: " + lng);
@@ -295,20 +243,33 @@ export class MapScene {
             //console.log("BUILDING LABEL POSITION: " + label.position.x);
 
             this.components.scene.get().add(label);
-            this.labels[id] = label;
+            this.labels[name] = label;
 
         }
     }
 
-    private createHTMLElement(content: string, id: string) {
+    private createHTMLElement(content: string, building: Building) {
 
         //console.log("PONIENDO LA PICA");
         const div = document.createElement("div");
         //div.textContent = id;
         div.textContent = content;
         div.onclick = () => {
-            this.events.trigger({ type: "OPEN_BUILDING", payload: id });
+            this.events.trigger({ type: "OPEN_BUILDING", payload: building });
         }
+        div.classList.add("thumbnail");
+        return div;
+    }
+
+    private createHTMLElementAsset(content: string, asset: Asset) {
+
+        //console.log("PONIENDO LA PICA");
+        const div = document.createElement("div");
+        //div.textContent = id;
+        div.textContent = content;
+        /*div.onclick = () => {
+            this.events.trigger({ type: "OPEN_BUILDING", payload: asset });
+        }*/
         div.classList.add("thumbnail");
         return div;
     }
