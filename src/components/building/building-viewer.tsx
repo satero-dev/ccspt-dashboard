@@ -1,39 +1,49 @@
-import { Box, Button } from "@mui/material";
-import React from "react";
-import { useState } from "react";
+import { FC, useState } from "react";
+import Box from "@mui/material/Box";
+import { BuildingTopBar } from "./side-menus/building-topbar";
+import { CssBaseline } from "@mui/material";
+import { BuildingDrawer } from "./side-menus/building-drawer";
+import { getDrawerHeader } from "./side-menus/mui-utils";
 import { useAppContext } from "../../middleware/context-provider";
 import { Navigate } from "react-router-dom";
-import { BuildingTopBar } from "./side-menus/building-topbar";
-import { BuildingDrawer } from "./side-menus/building-drawer";
+import { BuildingFrontMenu } from "./front-menu/building-front-menu";
+import { FrontMenuMode } from "./front-menu/types";
+//import { BuildingViewport } from "./building-viewport/building-viewport";
+//import { BuildingBottomMenu } from "./bottom-menu/building-bottom-menu";
 
-type Props = {
-    children?: React.ReactNode;
-};
-
-
-export const BuildingViewer = ({ children }: Props) => {
-
+export const BuildingViewer: FC = () => {
+    const [width] = useState(240);
     const [sideOpen, setSideOpen] = useState(false);
     const [frontOpen, setFrontOpen] = useState(false);
-    const [width] = useState(240);
+    const [frontMenu, setFrontMenu] = useState<FrontMenuMode>("BuildingInfo");
 
-    const [{ user, building }] = useAppContext();  //Recuperamos el estado del usuario
+    const [{ building, user }] = useAppContext();
 
     if (!building) {
-        return <Navigate to={"/map"} />
+        return <Navigate to="/map" />;
     }
+
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
+
+    const toggleFrontMenu = (active = !frontOpen, mode?: FrontMenuMode) => {
+        if (mode) {
+            setFrontMenu(mode);
+        }
+        setFrontOpen(active);
+    };
 
     const toggleDrawer = (active: boolean) => {
         setSideOpen(active);
-    }
+    };
 
-    const toggleFrontMenu = (active: boolean) => {
-        setFrontOpen(active);
-    }
+    const DrawerHeader = getDrawerHeader();
 
     return (
-        <>
-            <Box sx={{ display: "flex" }}></Box>
+        <Box sx={{ display: "flex" }}>
+            <CssBaseline />
+
             <BuildingTopBar
                 width={width}
                 open={sideOpen}
@@ -44,17 +54,19 @@ export const BuildingViewer = ({ children }: Props) => {
                 width={width}
                 open={sideOpen}
                 onClose={() => toggleDrawer(false)}
-                onToggleMenu={() => toggleFrontMenu(true)}
+                onToggleMenu={toggleFrontMenu}
             />
-        </>
+
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <DrawerHeader />
+
+
+                <BuildingFrontMenu
+                    onToggleMenu={toggleFrontMenu}
+                    open={frontOpen}
+                    mode={frontMenu}
+                />
+            </Box>
+        </Box>
     );
-
 };
-
-/*
-const onCloseBuilding = () => {
-
-    dispatch({ type: "CLOSE_BUILDING" });
-}
-
-<Button variant="contained" onClick={onCloseBuilding}>Tancar edifici</Button>*/
