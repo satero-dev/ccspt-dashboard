@@ -1,5 +1,6 @@
 export type FrontMenuMode =
     | "BuildingInfo"
+    | "CreateBuilding"
     | "ModelList"
     | "Properties"
     | "Floorplans";

@@ -18,7 +18,7 @@ import { SearchMenu } from "../search-toolbar/search-menu";
 import { MapDrawer } from "../toolbar-side/map-drawer-general";
 
 import { FrontMenuMode } from "../toolbar-side/front-menu/types";
-
+import { BuildingFrontMenu } from "../toolbar-side/front-menu/map-front-menu";
 
 type Props = {
     children?: React.ReactNode;
@@ -32,44 +32,20 @@ export const MapViewer = ({ children }: Props) => {
     const { user, building } = state;
 
     //Parámetros de menu lateral
-    const [width] = useState(240);  //Tamaño
-    const [sideOpen, setSideOpen] = useState(false);
     const [frontOpen, setFrontOpen] = useState(false);
     const [frontMenu, setFrontMenu] = useState<FrontMenuMode>("BuildingInfo");
 
-    const titulo = "ADIOS";
-
-
-    const [isCreatingBuilding, setIsCreatingBuilding] = useState(false);
+    //Parámetros de control de escaneo
     const [isScanning, setIsScanning] = useState(false);
 
     const [datos, setDatos] = React.useState<any[]>([]);
 
-    //Función para controlar si se está creando un edificio o no
-    const onToggleCreate = () => {
-        console.log("Cierra la ventana");
-        setIsCreatingBuilding(!isCreatingBuilding);
-    }
-
-    //Función que se ejecuta mientras se crea un edificio
-    const onCreateBuilding = () => {
-        if (isCreatingBuilding) {
-            dispatch({ type: "ADD_BUILDING", payload: user });
-            setIsCreatingBuilding(false);
-        }
-    }
 
     const onScanClose = () => {
 
         console.log("CIERRA SCAN");
         setIsScanning(false);
     }
-
-
-    const onLogout = () => {
-        dispatch({ type: "LOGOUT" });
-    };
-
 
     const onScan = () => {
 
@@ -117,7 +93,7 @@ export const MapViewer = ({ children }: Props) => {
         return <Navigate to="/login" />;
     }
 
-    console.log("BUILDING: " + building);
+    //console.log("BUILDING: " + building);
 
     if (building) {
         const url = `/building?id=${building.autoID}`;
@@ -139,13 +115,21 @@ export const MapViewer = ({ children }: Props) => {
                 onToggleMenu={toggleFrontMenu}
             />
 
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+
+                <BuildingFrontMenu
+                    onToggleMenu={toggleFrontMenu}
+                    open={frontOpen}
+                    mode={frontMenu}
+                />
+            </Box>
+
             <div
                 className="full-screen"
-                onContextMenu={onCreateBuilding}
                 ref={containerRef}
             />
 
-            {isScanning && false && (
+            {isScanning && (
 
                 <>
                     <div className="overlay">
@@ -163,16 +147,6 @@ export const MapViewer = ({ children }: Props) => {
 
             )}
 
-            {isCreatingBuilding && (
-
-                <>
-                    <div className="overlay">
-                        <p>Right click to create a new Building or </p>
-                        <Button variant="contained" onClick={onToggleCreate}>cancel</Button>
-                    </div>
-                </>
-
-            )}
 
             <BottomMenu />
             <SearchMenu datos={datos} />
@@ -183,6 +157,20 @@ export const MapViewer = ({ children }: Props) => {
 
 
 /*
+
+<div className="button-container">
+                <Button onClick={onLogout}>Log out</Button>
+                <Button variant="contained" onClick={onToggleCreate}>
+                    Create building
+                </Button>
+
+            </div>
+
+<div
+                className="full-screen"
+                onContextMenu={onCreateBuilding}
+                ref={containerRef}
+            />
 
 <div className="bottom-toolbar">
                 <Button variant="contained" startIcon={<DocumentScannerIcon />} onClick={onScan}></Button>

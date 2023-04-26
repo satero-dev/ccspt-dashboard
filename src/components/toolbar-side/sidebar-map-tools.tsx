@@ -1,5 +1,6 @@
 import MapIcon from "@mui/icons-material/Map";
 import LogoutIcon from "@mui/icons-material/Logout";
+import DomainAddIcon from '@mui/icons-material/DomainAdd';
 import ModelsIcon from "@mui/icons-material/HolidayVillage";
 import SearchIcon from "@mui/icons-material/Search";
 import FloorplanIcon from "@mui/icons-material/Layers";
@@ -8,6 +9,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { State } from "../../middleware/state";
 import { Action } from "../../middleware/actions";
 import { Tool } from "../../types";
+
 
 export function getSidebarTools(
     state: State,
@@ -24,11 +26,13 @@ export function getSidebarTools(
             },
         },
         {
-            name: "Models",
+            name: "Crear edificio",
             active: false,
-            icon: <ModelsIcon />,
+            icon: <DomainAddIcon />,
             action: ({ onToggleMenu }) => {
-                onToggleMenu(true, "ModelList");
+                onToggleMenu(true, "CreateBuilding");
+                console.log("CreateBuilding: ");
+
             },
         },
         {

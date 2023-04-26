@@ -109,7 +109,6 @@ export const MapDrawer: FC<{
 
     drawerWidth = width;
 
-    console.log("HOLA: " + drawerWidth);
 
     //export default function MiniDrawer() {
     const theme = useTheme();

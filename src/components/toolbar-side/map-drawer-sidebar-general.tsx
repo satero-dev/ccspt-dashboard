@@ -6,7 +6,7 @@ import {
     ListItemIcon,
     ListItemText,
 } from "@mui/material";
-import { getSidebarTools } from "./sidebar-tools";
+import { getSidebarTools } from "./sidebar-map-tools";
 import { useAppContext } from "../../middleware/context-provider";
 
 
@@ -19,6 +19,9 @@ export const MapDrawerSidebar: FC<{
     const [state, dispatch] = useAppContext();
 
     const tools = getSidebarTools(state, dispatch, onToggleMenu);
+
+
+    console.log("MapDrawerSidebar: ");
 
     return (
         <List>
