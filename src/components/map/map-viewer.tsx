@@ -15,7 +15,9 @@ import { Event } from "openbim-components";
 import { FieldValue } from "firebase/firestore";
 import { BottomMenu } from "../bottom-toolbar/bottom-menu";
 import { SearchMenu } from "../search-toolbar/search-menu";
-import MiniDrawer from "../toolbar-side/toolbar-side";
+import { MapDrawer } from "../toolbar-side/map-drawer-general";
+
+import { FrontMenuMode } from "../toolbar-side/front-menu/types";
 
 
 type Props = {
@@ -28,6 +30,14 @@ export const MapViewer = ({ children }: Props) => {
     const containerRef = useRef(null);  //Lugar donde se muestra la información
 
     const { user, building } = state;
+
+    //Parámetros de menu lateral
+    const [width] = useState(240);  //Tamaño
+    const [sideOpen, setSideOpen] = useState(false);
+    const [frontOpen, setFrontOpen] = useState(false);
+    const [frontMenu, setFrontMenu] = useState<FrontMenuMode>("BuildingInfo");
+
+    const titulo = "ADIOS";
 
 
     const [isCreatingBuilding, setIsCreatingBuilding] = useState(false);
@@ -114,10 +124,20 @@ export const MapViewer = ({ children }: Props) => {
         return <Navigate to={url} />
     }
 
+    const toggleFrontMenu = (active = !frontOpen, mode?: FrontMenuMode) => {
+        if (mode) {
+            setFrontMenu(mode);
+        }
+        setFrontOpen(active);
+    };
+
     return (
         <>
 
-            <MiniDrawer />
+            <MapDrawer
+                width={240}
+                onToggleMenu={toggleFrontMenu}
+            />
 
             <div
                 className="full-screen"

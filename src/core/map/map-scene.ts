@@ -103,7 +103,7 @@ export class MapScene {
                 // Draw an arrow next to the location dot to indicate which direction the device is heading.
                 showUserHeading: true,
                 showAccuracyCircle: false,
-            }), 'top-right'
+            }), 'bottom-right'
         );
 
 
