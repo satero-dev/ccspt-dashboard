@@ -40,6 +40,7 @@ export const MapViewer = ({ children }: Props) => {
 
     const [datos, setDatos] = React.useState<any[]>([]);
 
+    const [isCreatingBuilding, setIsCreatingBuilding] = useState(true);
 
     const onScanClose = () => {
 
@@ -55,6 +56,13 @@ export const MapViewer = ({ children }: Props) => {
         dispatch({ type: "SCAN_ASSET" });
 
     }
+
+    const onCreate = () => {
+        if (isCreatingBuilding) {
+            dispatch({ type: "ADD_BUILDING", payload: user });
+            setIsCreatingBuilding(false);
+        }
+    };
 
 
     useEffect(() => {
@@ -126,6 +134,7 @@ export const MapViewer = ({ children }: Props) => {
 
             <div
                 className="full-screen"
+                onContextMenu={onCreate}
                 ref={containerRef}
             />
 

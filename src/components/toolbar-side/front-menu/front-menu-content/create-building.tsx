@@ -14,7 +14,6 @@ export const CreateBuilding: FC<{
     const [state, dispatch] = useAppContext();
     const { user } = state;
 
-    let r: any;
 
     const [isCreatingBuilding, setIsCreatingBuilding] = useState(true);
 
@@ -41,25 +40,14 @@ export const CreateBuilding: FC<{
         onToggleMenu(false);*/
     }
 
-    const setRef = (containerRef: any) => {
-        r = { containerRef }
-    }
-
     return (
         <>
-            <div
-                className="full-screen"
-                onContextMenu={onCreateBuilding}
-
-            />
 
             {isCreatingBuilding && (
 
                 <div className="overlay">
                     <p>Right click to create a new Building or </p>
                     <Button variant="contained" onClick={onToggleCreate}>cancel</Button>
-
-                    <Button variant="contained" onClick={onCreateBuilding}>Algore</Button>
                 </div>
             )}
         </>
