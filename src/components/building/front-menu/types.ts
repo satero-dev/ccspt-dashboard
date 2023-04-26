@@ -3,3 +3,8 @@ export type FrontMenuMode =
     | "ModelList"
     | "Properties"
     | "Floorplans";
+
+export type FrontMenuModeMantenimiento =
+    | "BuildingInfo"
+    | "ModelList"
+    | "Properties";

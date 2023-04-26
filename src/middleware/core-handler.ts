@@ -25,7 +25,6 @@ export const executeCore = async (action: Action, events: Events) => {
 
     if (action.type === "OPEN_SCAN") {
 
-        console.log("scan core-handler");
         scanHandler.open();
     }
 
@@ -49,7 +48,6 @@ export const executeCore = async (action: Action, events: Events) => {
 
     if (action.type === "LOAD_DATA") {
         let { data } = action.payload;
-        console.log("CORE-HANDLER DATA: " + data);
         return mapHandler.loadData(data);
 
         //console.log("LOAD DATA SEARCH: " + action.payload);        
@@ -59,8 +57,11 @@ export const executeCore = async (action: Action, events: Events) => {
 
         mapHandler.gotoAsset(action.payload);
 
-        console.log("GOTO SEARCH: " + action.payload);
     }
+
+    /*if (action.type === "SET_ROLE") {
+        console.log("SET ROLE");
+    }*/
 
 
 

@@ -12,7 +12,8 @@ export const ActionList = [
     "UPDATE_BUILDING",
     "DELETE_BUILDING",
     "LOAD_DATA",
-    "GOTO_ASSET"
+    "GOTO_ASSET",
+    "SET_ROLE"
 ] as const;
 
 

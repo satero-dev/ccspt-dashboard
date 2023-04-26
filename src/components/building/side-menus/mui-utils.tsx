@@ -6,7 +6,7 @@ interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
 }
 
-export function getAppBar(drawerWidth: number) {
+/*export function getAppBar(drawerWidth: number) {
     return styled(MuiAppBar, {
         shouldForwardProp: (prop) => prop !== "open",
     })<AppBarProps>(({ theme, open }) => ({
@@ -24,7 +24,7 @@ export function getAppBar(drawerWidth: number) {
             }),
         }),
     }));
-}
+}*/
 
 const openedMixin = (theme: Theme, width: number): CSSObject => ({
     width: width,

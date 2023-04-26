@@ -15,6 +15,7 @@ import { Event } from "openbim-components";
 import { FieldValue } from "firebase/firestore";
 import { BottomMenu } from "../bottom-toolbar/bottom-menu";
 import { SearchMenu } from "../search-toolbar/search-menu";
+import MiniDrawer from "../toolbar-side/toolbar-side";
 
 
 type Props = {
@@ -115,6 +116,9 @@ export const MapViewer = ({ children }: Props) => {
 
     return (
         <>
+
+            <MiniDrawer />
+
             <div
                 className="full-screen"
                 onContextMenu={onCreateBuilding}
