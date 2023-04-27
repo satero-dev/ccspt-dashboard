@@ -1,4 +1,5 @@
 export type FrontMenuMode =
+    | "SearchAssets"
     | "BuildingInfo"
     | "CreateBuilding"
     | "ModelList"

@@ -40,7 +40,7 @@ export const MapViewer = ({ children }: Props) => {
 
     const [datos, setDatos] = React.useState<any[]>([]);
 
-    const [isCreatingBuilding, setIsCreatingBuilding] = useState(true);
+    const [isCreatingBuilding, setIsCreatingBuilding] = useState(false);
 
     const onScanClose = () => {
 
@@ -59,7 +59,8 @@ export const MapViewer = ({ children }: Props) => {
 
     const onCreate = () => {
         if (isCreatingBuilding) {
-            dispatch({ type: "ADD_BUILDING", payload: user });
+            console.log("CREANDO EDIFICIO");
+            //dispatch({ type: "ADD_BUILDING", payload: user });
             setIsCreatingBuilding(false);
         }
     };

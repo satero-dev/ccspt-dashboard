@@ -1,6 +1,6 @@
 import { Card, CardContent, IconButton } from "@mui/material";
 import { FC } from "react";
-import "./building-front-menu.css";
+//import "./building-front-menu.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { BuildingInfoMenu } from "./front-menu-content/building-info-menu";
 /*import { ModelListMenu } from "./front-menu-content/model-list-menu";
@@ -18,8 +18,8 @@ export const BuildingFrontMenu: FC<{
     }
 
     const content = new Map<FrontMenuMode, any>();
-    content.set("BuildingInfo", <BuildingInfoMenu onToggleMenu={onToggleMenu} />);
-    /*content.set("ModelList", <ModelListMenu />);
+    /*content.set("BuildingInfo", <BuildingInfoMenu onToggleMenu={onToggleMenu} />);
+    content.set("ModelList", <ModelListMenu />);
     content.set("Properties", <PropertiesMenu />);
     content.set("Floorplans", <FloorplanMenu />);*/
 
@@ -27,7 +27,7 @@ export const BuildingFrontMenu: FC<{
         BuildingInfo: "Building Information",
         ModelList: "Model List",
         Properties: "Properties",
-        Floorplans: "Floorplans",
+        Floorplans: "Floorplanus",
     };
 
     const title = titles[mode];

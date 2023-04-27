@@ -17,12 +17,13 @@ export function getSidebarTools(
     toggleMenu: () => void
 ): Tool[] {
     return [
+
         {
-            name: "Buscar",
+            name: "Buscar activos",
             active: false,
             icon: <SearchIcon />,
             action: ({ onToggleMenu }) => {
-                onToggleMenu(true, "BuildingInfo");
+                onToggleMenu(true, "SearchAssets");
             },
         },
         {
@@ -31,7 +32,7 @@ export function getSidebarTools(
             icon: <DomainAddIcon />,
             action: ({ onToggleMenu }) => {
                 onToggleMenu(true, "CreateBuilding");
-                console.log("CreateBuilding: ");
+                //console.log("CreateBuilding: ");
 
             },
         },
@@ -73,6 +74,14 @@ export function getSidebarTools(
             icon: <LogoutIcon />,
             action: ({ dispatch }) => {
                 dispatch({ type: "LOGOUT" });
+            },
+        },
+        {
+            name: "Buscar",
+            active: false,
+            icon: <SearchIcon />,
+            action: ({ onToggleMenu }) => {
+                onToggleMenu(true, "BuildingInfo");
             },
         },
     ];

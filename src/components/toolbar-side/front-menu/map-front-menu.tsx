@@ -1,8 +1,10 @@
 import { Card, CardContent, IconButton } from "@mui/material";
 import { FC } from "react";
+import "./map-front-menu.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { BuildingInfoMenu } from "./front-menu-content/building-info-menu";
 import { CreateBuilding } from "./front-menu-content/create-building";
+import { SearchAssetsMenu } from "./front-menu-content/search-assets";
 /*import { PropertiesMenu } from "./front-menu-content/properties-menu";
 import { FloorplanMenu } from "./front-menu-content/floorplan-menu";*/
 import { FrontMenuMode } from "./types";
@@ -17,13 +19,15 @@ export const BuildingFrontMenu: FC<{
     }
 
     const content = new Map<FrontMenuMode, any>();
-    content.set("BuildingInfo", <BuildingInfoMenu onToggleMenu={onToggleMenu} />);
+    /*content.set("BuildingInfo", <BuildingInfoMenu onToggleMenu={onToggleMenu} />);
     content.set("CreateBuilding", <CreateBuilding onToggleMenu={onToggleMenu} />);
-    /*content.set("Properties", <PropertiesMenu />);
+    content.set("SearchAssets", <SearchAssetsMenu onToggleMenu={onToggleMenu} />);
+    content.set("Properties", <PropertiesMenu />);
     content.set("Floorplans", <FloorplanMenu />);*/
 
     const titles = {
         BuildingInfo: "Building Information",
+        SearchAssets: "Search Assets",
         CreateBuilding: "Create Building",
         ModelList: "Model List",
         Properties: "Properties",
@@ -33,6 +37,7 @@ export const BuildingFrontMenu: FC<{
     const title = titles[mode];
 
     return (
+
         <Card className="front-menu">
             <CardContent>
                 <div className="front-menu-header">

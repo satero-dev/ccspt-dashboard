@@ -26,19 +26,6 @@ export const CreateBuilding: FC<{
         onToggleMenu(false);
     }
 
-    //Función que se ejecuta mientras se crea un edificio
-    const onCreateBuilding = () => {
-
-        console.log("CREANDO EDIFICIO");
-
-        /*if (isCreatingBuilding) {
-
-            dispatch({ type: "ADD_BUILDING", payload: user });
-            setIsCreatingBuilding(false);
-        }
-
-        onToggleMenu(false);*/
-    }
 
     return (
         <>
