@@ -1,9 +1,11 @@
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "@firebase/auth";
 import { Action } from "../../middleware/actions"
 import { Events } from "../../middleware/event-handler";
-import { Building } from "../../types";
+import { Building, Model } from "../../types";
 import { deleteDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
 import { getApp } from "firebase/app";
+import { deleteObject, getStorage, ref, uploadBytes } from "firebase/storage";
+
 
 export const dataBaseHandler = {
     login: (action: Action) => {
@@ -38,8 +40,10 @@ export const dataBaseHandler = {
 
     deleteBuilding: async (building: Building, events: Events) => {
 
+        console.log("CORE: deleteBuidling: " + building.autoID);
         const dbInstance = getFirestore(getApp());
-        await deleteDoc(doc(dbInstance, "buildings", building.uid));
+        await deleteDoc(doc(dbInstance, "buildings", building.autoID));
+        console.log("CORE: deleteBuidling 2");
         events.trigger({ type: "CLOSE_BUILDING" });
     },
 
@@ -49,4 +53,21 @@ export const dataBaseHandler = {
             ...building,
         })
     },
+
+    uploadModel: async (model: Model, file: File, building: Building, events: Events) => {
+        const appInstance = getApp();
+        const storageInstance = getStorage(appInstance);
+        const fileRef = ref(storageInstance, model.id);
+        await uploadBytes(fileRef, file);
+        events.trigger({ type: "UPDATE_BUILDING", payload: building });
+    },
+
+    deleteModel: async (model: Model, building: Building, events: Events) => {
+        const appInstance = getApp();
+        const storageInstance = getStorage(appInstance);
+        const fileRef = ref(storageInstance, model.id);
+        await deleteObject(fileRef);
+        events.trigger({ type: "UPDATE_BUILDING", payload: building });
+
+    }
 };

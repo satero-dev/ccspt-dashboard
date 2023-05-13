@@ -140,7 +140,7 @@ export const MapDrawer: FC<{
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Mini variant drawer
+                        Mapa general
                     </Typography>
                 </Toolbar>
             </AppBar>

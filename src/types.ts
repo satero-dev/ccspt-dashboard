@@ -16,6 +16,13 @@ export interface Building {
   lat: number;
   lng: number;
   tipo: string;
+  models: Model[];  //Un edificio puede tener varios modelos asociados
+}
+
+//Modelo 3D
+export interface Model {
+  name: string;   //Nombre del modelo
+  id: string;     //Identificador único
 }
 
 export interface Asset {
@@ -37,3 +44,14 @@ export interface Tool {
   icon: any;
   action: (...args: any) => void;
 }
+
+export interface Floorplan {
+  name: string;
+  id: string;
+}
+
+export interface Property {
+  name: string;
+  value: string;
+}
+

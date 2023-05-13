@@ -207,7 +207,7 @@ export class MapScene {
         const { lat, lng } = this.clickedCoordinates;
         const tipo = "Edificio";
         const userID = user.uid;
-        const building = { autoID: "", name: "", userID, lat, lng, uid: "", tipo };
+        const building = { autoID: "", name: "", userID, lat, lng, uid: "", tipo, models: [] };
         building.uid = await this.database.addBuilding(building);
         this.addBuildingToScene([building]);
     }

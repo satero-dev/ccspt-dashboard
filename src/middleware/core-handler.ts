@@ -37,12 +37,23 @@ export const executeCore = async (action: Action, events: Events) => {
     }
 
     if (action.type === "DELETE_BUILDING") {
+        console.log("DELETE BUILDING");
         dataBaseHandler.deleteBuilding(action.payload, events);
     }
 
 
     if (action.type === "UPDATE_BUILDING") {
         dataBaseHandler.updateBuilding(action.payload);
+    }
+
+    if (action.type === "UPLOAD_MODEL") {
+        const { model, file, building } = action.payload;
+        dataBaseHandler.uploadModel(model, file, building, events);
+    }
+
+    if (action.type === "DELETE_MODEL") {
+        const { model, building } = action.payload;
+        dataBaseHandler.deleteModel(model, building, events);
     }
 
 
