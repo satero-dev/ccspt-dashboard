@@ -1,6 +1,6 @@
 import { SimpleScan } from "../core/scanner/simple-scan";
 import { mapHandler } from "../core/map/map-handler";
-import { dataBaseHandler } from "../core/db/db-handler";
+import { databaseHandler } from "../core/db/db-handler";
 import { Action } from "./actions";
 import { scanHandler } from "../core/scanner/scan-handler";
 import { Events } from "./event-handler";
@@ -8,11 +8,11 @@ import { buildingHandler } from "../core/building/building-handler";
 
 export const executeCore = async (action: Action, events: Events) => {
     if (action.type === "LOGIN") {
-        return dataBaseHandler.login(action);
+        return databaseHandler.login();
     }
 
     if (action.type === "LOGOUT") {
-        return dataBaseHandler.logout(action);
+        return databaseHandler.logout();
     }
 
     if (action.type === "START_MAP") {
@@ -41,12 +41,12 @@ export const executeCore = async (action: Action, events: Events) => {
     }
 
     if (action.type === "DELETE_BUILDING") {
-        return dataBaseHandler.deleteBuilding(action.payload, events);
+        return databaseHandler.deleteBuilding(action.payload, events);
     }
 
 
     if (action.type === "UPDATE_BUILDING") {
-        return dataBaseHandler.updateBuilding(action.payload);
+        return databaseHandler.updateBuilding(action.payload);
     }
 
     if (action.type === "START_BUILDING") {
@@ -60,12 +60,12 @@ export const executeCore = async (action: Action, events: Events) => {
     if (action.type === "UPLOAD_MODEL") {
         const { model, file, building } = action.payload;
         const zipFile = await buildingHandler.convertIfcToFragments(file);
-        return dataBaseHandler.uploadModel(model, zipFile, building, events);
+        return databaseHandler.uploadModel(model, zipFile, building, events);
     }
 
     if (action.type === "DELETE_MODEL") {
         const { model, building } = action.payload;
-        return dataBaseHandler.deleteModel(model, building, events);
+        return databaseHandler.deleteModel(model, building, events);
     }
 
 

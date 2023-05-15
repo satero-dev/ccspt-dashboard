@@ -9,6 +9,7 @@ import { Navigate } from "react-router-dom";
 import { BuildingFrontMenu } from "./front-menu/building-front-menu";
 import { FrontMenuMode } from "./front-menu/types";
 import { BuildingViewport } from "./building-viewport/building-viewport";
+import { BuildingBottomMenu } from "./bottom-menu/building-bottom-menu";
 //import { BuildingBottomMenu } from "./bottom-menu/building-bottom-menu";
 
 export const BuildingViewer: FC = () => {
@@ -69,6 +70,8 @@ export const BuildingViewer: FC = () => {
           open={frontOpen}
           mode={frontMenu}
         />
+
+        <BuildingBottomMenu />
 
       </Box>
     </Box>
