@@ -9,7 +9,7 @@ export const BuildingViewport: FC = () => {
   useEffect(() => {
     const container = containerRef.current;
     if (container && user) {
-      //dispatch({ type: "START_BUILDING", payload: { container, building } });
+      dispatch({ type: "START_BUILDING", payload: { container, building } });
     }
   }, []);
 

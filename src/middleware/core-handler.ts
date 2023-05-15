@@ -4,6 +4,7 @@ import { dataBaseHandler } from "../core/db/db-handler";
 import { Action } from "./actions";
 import { scanHandler } from "../core/scanner/scan-handler";
 import { Events } from "./event-handler";
+import { buildingHandler } from "../core/building/building-handler";
 
 export const executeCore = async (action: Action, events: Events) => {
     if (action.type === "LOGIN") {
@@ -20,44 +21,51 @@ export const executeCore = async (action: Action, events: Events) => {
         return mapHandler.start(container, user, events);
     }
 
-    if (action.type === "REMOVE_MAP") {
+    if (action.type === "REMOVE_MAP" || action.type === "OPEN_BUILDING") {
         return mapHandler.remove();
     }
 
     if (action.type === "OPEN_SCAN") {
 
-        scanHandler.open();
+        return scanHandler.open();
     }
 
     if (action.type === "SCAN_ASSET") {
-        mapHandler.scanAsset(action.payload);
+        return mapHandler.scanAsset(action.payload);
     }
 
     if (action.type === "ADD_BUILDING") {
         /*const { user } = action.payload;
         console.log("ADD_BUILDING core-handler: " + user.uid);*/
-        mapHandler.addBuilding(action.payload);
+        return mapHandler.addBuilding(action.payload);
     }
 
     if (action.type === "DELETE_BUILDING") {
-        console.log("DELETE BUILDING");
-        dataBaseHandler.deleteBuilding(action.payload, events);
+        return dataBaseHandler.deleteBuilding(action.payload, events);
     }
 
 
     if (action.type === "UPDATE_BUILDING") {
-        dataBaseHandler.updateBuilding(action.payload);
+        return dataBaseHandler.updateBuilding(action.payload);
+    }
+
+    if (action.type === "START_BUILDING") {
+        const { container, building } = action.payload;
+        return buildingHandler.start(container, building, events);
+    }
+    if (action.type === "CLOSE_BUILDING") {
+        return buildingHandler.remove();
     }
 
     if (action.type === "UPLOAD_MODEL") {
-        console.log("UPLOADINGMODEL FROM CORE HANDLER");
         const { model, file, building } = action.payload;
-        dataBaseHandler.uploadModel(model, file, building, events);
+        const zipFile = await buildingHandler.convertIfcToFragments(file);
+        return dataBaseHandler.uploadModel(model, zipFile, building, events);
     }
 
     if (action.type === "DELETE_MODEL") {
         const { model, building } = action.payload;
-        dataBaseHandler.deleteModel(model, building, events);
+        return dataBaseHandler.deleteModel(model, building, events);
     }
 
 
@@ -70,7 +78,7 @@ export const executeCore = async (action: Action, events: Events) => {
 
     if (action.type === "GOTO_ASSET") {
 
-        mapHandler.gotoAsset(action.payload);
+        return mapHandler.gotoAsset(action.payload);
 
     }
 

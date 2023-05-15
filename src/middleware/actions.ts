@@ -15,7 +15,16 @@ export const ActionList = [
     "GOTO_ASSET",
     "SET_ROLE",
     "UPLOAD_MODEL",
-    "DELETE_MODEL"
+    "DELETE_MODEL",
+    "START_BUILDING",
+    "CLOSE_BUILDING",
+    "EXPLODE_MODEL",
+    "TOGGLE_CLIPPER",
+    "TOGGLE_DIMENSIONS",
+    "TOGGLE_FLOORPLAN",
+    "UPDATE_FLOORPLANS",
+    "UPDATE_PROPERTIES",
+
 ] as const;
 
 

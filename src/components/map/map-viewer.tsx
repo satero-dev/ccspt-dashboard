@@ -68,6 +68,7 @@ export const MapViewer = ({ children }: Props) => {
     useEffect(() => {
         const container = containerRef.current;
         if (container && user) {
+
             dispatch({ type: "START_MAP", payload: { container, user } });
 
             let database = new MapDataBase();
@@ -90,10 +91,6 @@ export const MapViewer = ({ children }: Props) => {
 
 
 
-        }
-
-        return () => {
-            dispatch({ type: "REMOVE_MAP" });
         }
     }, []);
 
