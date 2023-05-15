@@ -115,28 +115,32 @@ export const MapViewer = ({ children }: Props) => {
         setFrontOpen(active);
     };
 
+    const onToggleCreate = () => {
+        setIsCreatingBuilding(!isCreatingBuilding);
+    };
+
     return (
         <>
 
-            <MapDrawer
-                width={240}
-                onToggleMenu={toggleFrontMenu}
-            />
 
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-
-                <BuildingFrontMenu
-                    onToggleMenu={toggleFrontMenu}
-                    open={frontOpen}
-                    mode={frontMenu}
-                />
-            </Box>
-
-            <div style={{ cursor: 'crossair' }}
+            <div
                 className="full-screen"
                 onContextMenu={onCreate}
                 ref={containerRef}
             />
+
+            {isCreatingBuilding && (
+                <div className="overlay">
+                    <p>Right click to create a new building or</p>
+                    <Button onClick={onToggleCreate}>cancel</Button>
+                </div>
+            )}
+
+            <div className="button-container">
+                <Button variant="contained" onClick={onToggleCreate}>
+                    Create building
+                </Button>
+            </div>
 
             {isScanning && (
 

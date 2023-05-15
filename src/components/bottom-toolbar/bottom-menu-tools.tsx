@@ -123,10 +123,6 @@ export function getBottomMenuTools(): Tool[] {
         },
     ];
 
-
-
-
-
     const findTool = (name: string) => {
         const tool = tools.find((tool) => tool.name === name);
         if (!tool) throw new Error("Tool not found!");

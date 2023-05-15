@@ -48,13 +48,18 @@ export const dataBaseHandler = {
     },
 
     updateBuilding: async (building: Building) => {
+
+        console.log("DB-HANDLER: UpdateBuilding");
+
         const dbInstance = getFirestore(getApp());
-        await updateDoc(doc(dbInstance, "buildings", building.uid), {
+        await updateDoc(doc(dbInstance, "buildings", building.autoID), {
             ...building,
         })
     },
 
     uploadModel: async (model: Model, file: File, building: Building, events: Events) => {
+
+        console.log("DB-HANDLER: uploadModel");
         const appInstance = getApp();
         const storageInstance = getStorage(appInstance);
         const fileRef = ref(storageInstance, model.id);

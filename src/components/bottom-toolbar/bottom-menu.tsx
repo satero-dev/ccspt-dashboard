@@ -24,6 +24,7 @@ export const BottomMenu = ({ children }: Props) => {
 
     return (
         <>
+
             <Grid className="bottom-menu" gap={2}>
 
                 <Card>

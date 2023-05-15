@@ -50,6 +50,7 @@ export const executeCore = async (action: Action, events: Events) => {
     }
 
     if (action.type === "UPLOAD_MODEL") {
+        console.log("UPLOADINGMODEL FROM CORE HANDLER");
         const { model, file, building } = action.payload;
         dataBaseHandler.uploadModel(model, file, building, events);
     }
