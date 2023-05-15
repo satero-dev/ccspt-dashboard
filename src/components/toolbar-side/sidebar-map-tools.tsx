@@ -9,6 +9,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { State } from "../../middleware/state";
 import { Action } from "../../middleware/actions";
 import { Tool } from "../../types";
+import { Button } from "@mui/material";
+import "./sidebar-map-tools.css";
+
+import React, { useState } from "react";
+
+
 
 
 export function getSidebarTools(
@@ -31,12 +37,24 @@ export function getSidebarTools(
             active: false,
             icon: <DomainAddIcon />,
             action: ({ onToggleMenu }) => {
-                onToggleMenu(true, "CreateBuilding");
+                //onToggleMenu(true, "CreateBuilding");
+
+                <div style={{ cursor: 'crosshair' }}>
+
+                    <h2>Click to change mouse cursor</h2>
+
+                </div>
+
+
+                //Todavia no
+                //const { user } = state;
+                //dispatch({ type: "ADD_BUILDING", payload: user });
+
                 //console.log("CreateBuilding: ");
 
             },
         },
-        {
+        /*{
             name: "Floorplans",
             active: false,
             icon: <FloorplanIcon />,
@@ -67,7 +85,7 @@ export function getSidebarTools(
             action: ({ dispatch, state }) => {
                 dispatch({ type: "DELETE_BUILDING", payload: state.building });
             },
-        },
+        },*/
         {
             name: "Log out",
             active: false,
@@ -76,13 +94,6 @@ export function getSidebarTools(
                 dispatch({ type: "LOGOUT" });
             },
         },
-        {
-            name: "Buscar",
-            active: false,
-            icon: <SearchIcon />,
-            action: ({ onToggleMenu }) => {
-                onToggleMenu(true, "BuildingInfo");
-            },
-        },
     ];
+
 }

@@ -15,6 +15,9 @@ export class MapDataBase {
     private readonly assets = "assets";
 
     async addBuilding(building: Building) {
+
+        console.log("ADD EDIFICIO MAP-DATABASE 1");
+
         const dbInstance = getFirestore(getApp());
         const { name, tipo, lat, lng, userID, models } = building;
         const result = await addDoc(collection(dbInstance, this.buildings), {
@@ -28,12 +31,12 @@ export class MapDataBase {
         return result.id;
     }
 
-    async getBuildings(user: User) {
+    async getBuildings() {
 
         const dbInstance = getFirestore(getApp());
         const q = query(
-            collection(dbInstance, this.buildings),
-            where("userID", "==", user.uid)
+            collection(dbInstance, this.buildings)//,
+            //where("userID", "==", user.uid)
         );
 
 

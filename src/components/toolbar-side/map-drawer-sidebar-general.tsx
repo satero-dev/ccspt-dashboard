@@ -15,13 +15,11 @@ export const MapDrawerSidebar: FC<{
     open: boolean;
     onToggleMenu: () => void;
 }> = (props) => {
+
     const { open, onToggleMenu } = props;
     const [state, dispatch] = useAppContext();
 
     const tools = getSidebarTools(state, dispatch, onToggleMenu);
-
-
-    console.log("MapDrawerSidebar: ");
 
     return (
         <List>

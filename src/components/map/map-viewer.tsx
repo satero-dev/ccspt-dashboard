@@ -60,11 +60,10 @@ export const MapViewer = ({ children }: Props) => {
     const onCreate = () => {
         if (isCreatingBuilding) {
             console.log("CREANDO EDIFICIO");
-            //dispatch({ type: "ADD_BUILDING", payload: user });
+            dispatch({ type: "ADD_BUILDING", payload: user });
             setIsCreatingBuilding(false);
         }
-    };
-
+    }
 
     useEffect(() => {
         const container = containerRef.current;
@@ -75,7 +74,7 @@ export const MapViewer = ({ children }: Props) => {
 
             const fetchData = async () => {
 
-                const allDatabases = await Promise.all([database.getAssets(user), database.getBuildings(user)])
+                const allDatabases = await Promise.all([database.getAssets(user), database.getBuildings()])
 
                 const assetsDatabase = await allDatabases[0];
                 const buildingsDatabase = await allDatabases[1];
@@ -133,7 +132,7 @@ export const MapViewer = ({ children }: Props) => {
                 />
             </Box>
 
-            <div
+            <div style={{ cursor: 'crossair' }}
                 className="full-screen"
                 onContextMenu={onCreate}
                 ref={containerRef}
@@ -156,7 +155,6 @@ export const MapViewer = ({ children }: Props) => {
                 </>
 
             )}
-
 
             <BottomMenu />
             <SearchMenu datos={datos} />

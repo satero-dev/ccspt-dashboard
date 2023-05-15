@@ -28,11 +28,13 @@ export const BuildingFrontMenu: FC<{
     const titles = {
         BuildingInfo: "Building Information",
         SearchAssets: "Search Assets",
-        CreateBuilding: "Create Building",
+        CreateBuilding: "Crear Edificio",
         ModelList: "Model List",
         Properties: "Properties",
         Floorplans: "Floorplans",
     };
+
+    console.log("MODE: " + mode);
 
     const title = titles[mode];
 

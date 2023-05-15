@@ -16,6 +16,7 @@ export const executeCore = async (action: Action, events: Events) => {
 
     if (action.type === "START_MAP") {
         const { container, user } = action.payload;
+        console.log("START_MAP: " + user.uid);
         return mapHandler.start(container, user, events);
     }
 
@@ -33,6 +34,8 @@ export const executeCore = async (action: Action, events: Events) => {
     }
 
     if (action.type === "ADD_BUILDING") {
+        /*const { user } = action.payload;
+        console.log("ADD_BUILDING core-handler: " + user.uid);*/
         mapHandler.addBuilding(action.payload);
     }
 

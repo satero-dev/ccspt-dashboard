@@ -29,6 +29,8 @@ export class MapScene {
         this.map = this.createMap(config);
         this.initializeComponent(config);
         this.createScene();
+
+
     }
 
     dispose() {
@@ -44,8 +46,8 @@ export class MapScene {
 
     }
 
-    async getAllBuildings(user: User) {
-        const buildings = await this.database.getBuildings(user);
+    async getAllBuildings() {
+        const buildings = await this.database.getBuildings();
         if (!this.components) return;
         this.addBuildingToScene(buildings);
     }
@@ -204,24 +206,33 @@ export class MapScene {
 
     //Añadimos edificio, esta opción solo ha de ser visible para el administrador en Escritorio
     async addBuilding(user: User) {
+
+        console.log("ADD_BUILDING map-scene");
+
         const { lat, lng } = this.clickedCoordinates;
         const tipo = "Edificio";
         const userID = user.uid;
+
         const building = { autoID: "", name: "", userID, lat, lng, uid: "", tipo, models: [] };
-        building.uid = await this.database.addBuilding(building);
+
+
+        building.autoID = await this.database.addBuilding(building);
         this.addBuildingToScene([building]);
     }
 
 
     private addBuildingToScene(buildings: Building[]) {
+
+        console.log("ADD_BUILDING map-scene addBuildingToScene");
+
         for (const building of buildings) {
 
             const { name, lng, lat } = building;
             const htmlElement = this.createHTMLElement("🏥", building);
             const label = new CSS2DObject(htmlElement);
 
-            /*console.log("addToScene lng: " + lng);
-            console.log("addToScene lat: " + lat);*/
+            console.log("addToScene lng: " + lng);
+            console.log("addToScene lat: " + lat);
 
             const center = MAPBOX.MercatorCoordinate.fromLngLat(
                 { ...this.center },
@@ -235,8 +246,8 @@ export class MapScene {
             center.x /= units;
             center.y /= units;
 
-            //console.log("BUILDING center.x: " + center.x + " center.y: " + center.y);
-            //console.log("BUILDING model.x: " + model.x + " model.y: " + model.y);
+            console.log("BUILDING center.x: " + center.x + " center.y: " + center.y);
+            console.log("BUILDING model.x: " + model.x + " model.y: " + model.y);
 
             label.position.set(model.x - center.x, 0, model.y - center.y);
 

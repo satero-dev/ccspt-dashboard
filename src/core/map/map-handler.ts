@@ -14,7 +14,7 @@ export const mapHandler = {
             console.log("Map started!");
             console.log("MAPA START: " + user);
             this.viewer = new MapScene(container, events);
-            await this.viewer.getAllBuildings(user);
+            await this.viewer.getAllBuildings();
             await this.viewer.getAllAssets(user);
 
         }
@@ -43,7 +43,7 @@ export const mapHandler = {
 
     addBuilding(user: User) {
         if (this.viewer) {
-            console.log("map-handler alert");
+            console.log("ADD_BUILDING map-handler");
             this.viewer.addBuilding(user);
             //this.viewer.userLocation(user);
         }
