@@ -1,0 +1,2568 @@
+"148": {
+    "expressID": 148,
+    "type": 987401354,
+    "GlobalId": {
+        "type": 1,
+        "value": "19mUYI6bHB$ODFngJzpmXN"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Conducto rectangular:CSPT-HVAC-Generic-Te:992770"
+    },
+    "Description": null,
+    "ObjectType": {
+        "type": 1,
+        "value": "Conducto rectangular:CSPT-HVAC-Generic-Te"
+    },
+    "ObjectPlacement": {
+        "type": 5,
+        "value": 138
+    },
+    "Representation": {
+        "type": 5,
+        "value": 146
+    },
+    "Tag": {
+        "type": 1,
+        "value": "992770"
+    }
+},
+"149": {
+    "expressID": 149,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Reference"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCIDENTIFIER",
+        "valueType": 1,
+        "value": "CSPT-HVAC-Generic-Te"
+    },
+    "Unit": null
+},
+"150": {
+    "expressID": 150,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "1ur$o$O6PneK7N6inPEBVA"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_DistributionFlowElementCommon"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 149
+        }
+    ]
+},
+"151": {
+    "expressID": 151,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Length"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPOSITIVELENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.30000000000000115
+    },
+    "Unit": null
+},
+"152": {
+    "expressID": 152,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "1Mc3UB1xlTb_ZV0Sap6zVp"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_FlowSegmentDuctSegment"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 151
+        }
+    ]
+},
+"153": {
+    "expressID": 153,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Length"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPOSITIVELENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.30000000000000115
+    },
+    "Unit": null
+},
+"154": {
+    "expressID": 154,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "3FPxsJ0a7cbl1cm$F9jC1r"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_FlowSegmentPipeSegment"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 153
+        }
+    ]
+},
+"155": {
+    "expressID": 155,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "13vFmf7Dwq5Tv_2xg6yNMB"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_QuantityTakeOff"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 149
+        }
+    ]
+},
+"156": {
+    "expressID": 156,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Length"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPOSITIVELENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.30000000000000115
+    },
+    "Unit": null
+},
+"157": {
+    "expressID": 157,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "31MtY8oeMrEo8HK1omMyp5"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_DuctSegmentTypeCommon"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 156
+        }
+    ]
+},
+"158": {
+    "expressID": 158,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "12JBtfZ6SuVtsQzpN5zenh"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 148
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 150
+    }
+},
+"159": {
+    "expressID": 159,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "0SFbkEtW3nZdBOwljxyEMf"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 148
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 152
+    }
+},
+"160": {
+    "expressID": 160,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "17VWiyTlVnoezryWazkleg"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 148
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 154
+    }
+},
+"161": {
+    "expressID": 161,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "2JnglOSsmitl3FoFx8FtW6"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 148
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 155
+    }
+},
+"162": {
+    "expressID": 162,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "14T_PSgM3nIL_RVbI2A7Km"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 148
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 157
+    }
+},
+"163": {
+    "expressID": 163,
+    "type": 647927063,
+    "Location": {
+        "type": 1,
+        "value": "https://www.csiresources.org/standards/uniformat"
+    },
+    "Identification": {
+        "type": 1,
+        "value": "50.30.40.20"
+    },
+    "Name": {
+        "type": 1,
+        "value": "Uniformat"
+    },
+    "ReferencedSource": {
+        "type": 5,
+        "value": 92
+    }
+},
+"164": {
+    "expressID": 164,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Grosor de aislamiento interior"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"165": {
+    "expressID": 165,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tamaño libre"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "500 mmx300 mm"
+    },
+    "Unit": null
+},
+"166": {
+    "expressID": 166,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Grosor de aislamiento"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"167": {
+    "expressID": 167,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tamaño total"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "500 mmx300 mm"
+    },
+    "Unit": null
+},
+"168": {
+    "expressID": 168,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Flujo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCVOLUMETRICFLOWRATEMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"169": {
+    "expressID": 169,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Flujo adicional"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCVOLUMETRICFLOWRATEMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"170": {
+    "expressID": 170,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Fricción"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCREAL",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": {
+        "type": 5,
+        "value": 71
+    }
+},
+"171": {
+    "expressID": 171,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Número de Reynolds"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCREAL",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"172": {
+    "expressID": 172,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Pérdida de carga"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPRESSUREMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"173": {
+    "expressID": 173,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Presión de velocidad"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPRESSUREMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"174": {
+    "expressID": 174,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Velocidad"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLINEARVELOCITYMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"175": {
+    "expressID": 175,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación inferior"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.149999999999993
+    },
+    "Unit": null
+},
+"176": {
+    "expressID": 176,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación intermedia"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.2999999999999936
+    },
+    "Unit": null
+},
+"177": {
+    "expressID": 177,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación intermedia final"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.2999999999999936
+    },
+    "Unit": null
+},
+"178": {
+    "expressID": 178,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación intermedia inicial"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.2999999999999936
+    },
+    "Unit": null
+},
+"179": {
+    "expressID": 179,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación superior"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.449999999999994
+    },
+    "Unit": null
+},
+"180": {
+    "expressID": 180,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Justificación horizontal"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCIDENTIFIER",
+        "valueType": 1,
+        "value": "Centro"
+    },
+    "Unit": null
+},
+"181": {
+    "expressID": 181,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Justificación vertical"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCIDENTIFIER",
+        "valueType": 1,
+        "value": "Medio"
+    },
+    "Unit": null
+},
+"182": {
+    "expressID": 182,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Nivel de referencia"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "P01"
+    },
+    "Unit": null
+},
+"183": {
+    "expressID": 183,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Pendiente"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCREAL",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"184": {
+    "expressID": 184,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Fase de creación"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "Existente"
+    },
+    "Unit": null
+},
+"185": {
+    "expressID": 185,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Abreviatura de sistema"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": ""
+    },
+    "Unit": null
+},
+"186": {
+    "expressID": 186,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Área"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCAREAMEASURE",
+        "valueType": 4,
+        "value": 11.885064614986355
+    },
+    "Unit": null
+},
+"187": {
+    "expressID": 187,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Bloqueo de tamaño"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCBOOLEAN",
+        "valueType": 3,
+        "value": "F"
+    },
+    "Unit": null
+},
+"188": {
+    "expressID": 188,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Clasificación de sistema"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "Suministro de aire"
+    },
+    "Unit": null
+},
+"189": {
+    "expressID": 189,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Coeficiente de pérdida"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCREAL",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"190": {
+    "expressID": 190,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Diámetro equivalente"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.41997930687756324
+    },
+    "Unit": null
+},
+"191": {
+    "expressID": 191,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Diámetro hidráulico"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.3750000000000001
+    },
+    "Unit": null
+},
+"192": {
+    "expressID": 192,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Nombre de sistema"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "CSPT-HVAC-CL9-IMP"
+    },
+    "Unit": null
+},
+"193": {
+    "expressID": 193,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tipo de sistema"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "CSPT-HVAC-AireImpulsio"
+    },
+    "Unit": null
+},
+"194": {
+    "expressID": 194,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tramo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCINTEGER",
+        "valueType": 4,
+        "value": 55
+    },
+    "Unit": null
+},
+"195": {
+    "expressID": 195,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Altura"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.3000000000000001
+    },
+    "Unit": null
+},
+"196": {
+    "expressID": 196,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Anchura"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.5
+    },
+    "Unit": null
+},
+"197": {
+    "expressID": 197,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Longitud"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 7.428165384366472
+    },
+    "Unit": null
+},
+"198": {
+    "expressID": 198,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tamaño"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "500 mmx300 mm"
+    },
+    "Unit": null
+},
+"199": {
+    "expressID": 199,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Editado por"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "satero"
+    },
+    "Unit": null
+},
+"200": {
+    "expressID": 200,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Subproyecto"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCIDENTIFIER",
+        "valueType": 1,
+        "value": "05.03_HVAC"
+    },
+    "Unit": null
+},
+"201": {
+    "expressID": 201,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Categoría"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "Conductos"
+    },
+    "Unit": null
+},
+"202": {
+    "expressID": 202,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Familia"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "Conducto rectangular"
+    },
+    "Unit": null
+},
+"203": {
+    "expressID": 203,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Familia y tipo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "Conducto rectangular: CSPT-HVAC-Generic-Te"
+    },
+    "Unit": null
+},
+"204": {
+    "expressID": 204,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "ID de tipo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "1000324"
+    },
+    "Unit": null
+},
+"205": {
+    "expressID": 205,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tipo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLABEL",
+        "valueType": 1,
+        "value": "CSPT-HVAC-Generic-Te"
+    },
+    "Unit": null
+},
+"206": {
+    "expressID": 206,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "CSPT_Codi_GuBIMClassDescripcio"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "Retorn de aire tractat"
+    },
+    "Unit": null
+},
+"207": {
+    "expressID": 207,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "CSPT_Codi_GuBIMClassNumero"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "50.30.40.40"
+    },
+    "Unit": null
+},
+"208": {
+    "expressID": 208,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "CSPT_Codi_OmniClass23Descripcio"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "Square Ventilation Ducts"
+    },
+    "Unit": null
+},
+"209": {
+    "expressID": 209,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "CSPT_Codi_OmniClass23Numero"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "23-33 49 13 13"
+    },
+    "Unit": null
+},
+"210": {
+    "expressID": 210,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Aspereza"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.00009144000000000003
+    },
+    "Unit": null
+},
+"211": {
+    "expressID": 211,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Código de montaje"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "50.30.40.20"
+    },
+    "Unit": null
+},
+"212": {
+    "expressID": 212,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Descripción de montaje"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": ""
+    },
+    "Unit": null
+},
+"213": {
+    "expressID": 213,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Editado por"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "satero"
+    },
+    "Unit": null
+},
+"214": {
+    "expressID": 214,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Nombre de tipo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "CSPT-HVAC-Generic-Te"
+    },
+    "Unit": null
+},
+"215": {
+    "expressID": 215,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Nota clave"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": ""
+    },
+    "Unit": null
+},
+"216": {
+    "expressID": 216,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Subproyecto"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCIDENTIFIER",
+        "valueType": 1,
+        "value": "Tipos de conducto"
+    },
+    "Unit": null
+},
+"217": {
+    "expressID": 217,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Nombre de familia"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "Conducto rectangular"
+    },
+    "Unit": null
+},
+"218": {
+    "expressID": 218,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "0BhO94PeBNn$54jNQbA3vp"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Aislamiento interior"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 164
+        },
+        {
+            "type": 5,
+            "value": 165
+        }
+    ]
+},
+"219": {
+    "expressID": 219,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "0oERQNYpLmftVBPOsxh00p"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Aislamiento"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 166
+        },
+        {
+            "type": 5,
+            "value": 167
+        }
+    ]
+},
+"220": {
+    "expressID": 220,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "2wkSvsoscco9s2ErnNFeEl"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Mecánico - Flujo"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 168
+        },
+        {
+            "type": 5,
+            "value": 169
+        },
+        {
+            "type": 5,
+            "value": 170
+        },
+        {
+            "type": 5,
+            "value": 171
+        },
+        {
+            "type": 5,
+            "value": 172
+        },
+        {
+            "type": 5,
+            "value": 173
+        },
+        {
+            "type": 5,
+            "value": 174
+        }
+    ]
+},
+"221": {
+    "expressID": 221,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "0elRQRgaw_5BDI1Dpe$G$A"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Restricciones"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 175
+        },
+        {
+            "type": 5,
+            "value": 176
+        },
+        {
+            "type": 5,
+            "value": 177
+        },
+        {
+            "type": 5,
+            "value": 178
+        },
+        {
+            "type": 5,
+            "value": 179
+        },
+        {
+            "type": 5,
+            "value": 180
+        },
+        {
+            "type": 5,
+            "value": 181
+        },
+        {
+            "type": 5,
+            "value": 182
+        },
+        {
+            "type": 5,
+            "value": 183
+        }
+    ]
+},
+"222": {
+    "expressID": 222,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "2$Yit7Pz0KoR7ZUjNhI2DM"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Proceso por fases"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 184
+        }
+    ]
+},
+"223": {
+    "expressID": 223,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "2lB_1YWkg2jngsIAG8J11U"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Mecánica"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 185
+        },
+        {
+            "type": 5,
+            "value": 186
+        },
+        {
+            "type": 5,
+            "value": 187
+        },
+        {
+            "type": 5,
+            "value": 188
+        },
+        {
+            "type": 5,
+            "value": 189
+        },
+        {
+            "type": 5,
+            "value": 190
+        },
+        {
+            "type": 5,
+            "value": 191
+        },
+        {
+            "type": 5,
+            "value": 192
+        },
+        {
+            "type": 5,
+            "value": 193
+        },
+        {
+            "type": 5,
+            "value": 194
+        }
+    ]
+},
+"224": {
+    "expressID": 224,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "2Frflty$nx_besHmxKj$SA"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Cotas"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 195
+        },
+        {
+            "type": 5,
+            "value": 196
+        },
+        {
+            "type": 5,
+            "value": 197
+        },
+        {
+            "type": 5,
+            "value": 198
+        }
+    ]
+},
+"225": {
+    "expressID": 225,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "30a1ot9nHNZ8_VNu_0MUBq"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Datos de identidad"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 199
+        },
+        {
+            "type": 5,
+            "value": 200
+        }
+    ]
+},
+"226": {
+    "expressID": 226,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "2eXln5zYHwAIDTG6KNVc3w"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Otros"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 201
+        },
+        {
+            "type": 5,
+            "value": 202
+        },
+        {
+            "type": 5,
+            "value": 203
+        },
+        {
+            "type": 5,
+            "value": 204
+        },
+        {
+            "type": 5,
+            "value": 205
+        }
+    ]
+},
+"227": {
+    "expressID": 227,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "3PoS0s2uIxKMeujNQFii_G"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Datos"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 206
+        },
+        {
+            "type": 5,
+            "value": 207
+        },
+        {
+            "type": 5,
+            "value": 208
+        },
+        {
+            "type": 5,
+            "value": 209
+        }
+    ]
+},
+"228": {
+    "expressID": 228,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "3RZfTrtLij2Rkn0PSwbaTv"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Construcción"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 210
+        }
+    ]
+},
+"229": {
+    "expressID": 229,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "0uVqlIzvqBiENIxUhSbL9w"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Datos de identidad"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 211
+        },
+        {
+            "type": 5,
+            "value": 212
+        },
+        {
+            "type": 5,
+            "value": 213
+        },
+        {
+            "type": 5,
+            "value": 214
+        },
+        {
+            "type": 5,
+            "value": 215
+        },
+        {
+            "type": 5,
+            "value": 216
+        }
+    ]
+},
+"230": {
+    "expressID": 230,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "2VYeYgf$WmhkM1KwFeHIOL"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Otros"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 201
+        },
+        {
+            "type": 5,
+            "value": 217
+        }
+    ]
+},
+"241": {
+    "expressID": 241,
+    "type": 987401354,
+    "GlobalId": {
+        "type": 1,
+        "value": "19mUYI6bHB$ODFngJzpmXM"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Conducto rectangular:CSPT-HVAC-Generic-Te:992771"
+    },
+    "Description": null,
+    "ObjectType": {
+        "type": 1,
+        "value": "Conducto rectangular:CSPT-HVAC-Generic-Te"
+    },
+    "ObjectPlacement": {
+        "type": 5,
+        "value": 232
+    },
+    "Representation": {
+        "type": 5,
+        "value": 240
+    },
+    "Tag": {
+        "type": 1,
+        "value": "992771"
+    }
+},
+"242": {
+    "expressID": 242,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "0gXyee0tn3oZd6yrTomd1q"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_DistributionFlowElementCommon"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 149
+        }
+    ]
+},
+"243": {
+    "expressID": 243,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Length"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPOSITIVELENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.30000000000000115
+    },
+    "Unit": null
+},
+"244": {
+    "expressID": 244,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "1wpNdu5cH4jGy2P6LHbsz$"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_FlowSegmentDuctSegment"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 243
+        }
+    ]
+},
+"245": {
+    "expressID": 245,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Length"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPOSITIVELENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.30000000000000115
+    },
+    "Unit": null
+},
+"246": {
+    "expressID": 246,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "064v9rXNNxiAyD$0yy4dLj"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_FlowSegmentPipeSegment"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 245
+        }
+    ]
+},
+"247": {
+    "expressID": 247,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "1iAgzhExGExIS9P3NtvNGH"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_QuantityTakeOff"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 149
+        }
+    ]
+},
+"248": {
+    "expressID": 248,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Length"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPOSITIVELENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.30000000000000115
+    },
+    "Unit": null
+},
+"249": {
+    "expressID": 249,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "1iME9nP_EnyTwWHRV3gENp"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Pset_DuctSegmentTypeCommon"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 248
+        }
+    ]
+},
+"250": {
+    "expressID": 250,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "0wJYOPYYwIZuO3NytlBImh"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 241
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 242
+    }
+},
+"251": {
+    "expressID": 251,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "1O2kO_2d0$sUyKJ7hDI28X"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 241
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 244
+    }
+},
+"252": {
+    "expressID": 252,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "15m6dwfmjVHJgxcku8kmca"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 241
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 246
+    }
+},
+"253": {
+    "expressID": 253,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "1CrE0HRuApXtXg2uyGLBbb"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 241
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 247
+    }
+},
+"254": {
+    "expressID": 254,
+    "type": 4186316022,
+    "GlobalId": {
+        "type": 1,
+        "value": "06bDf0ebeYYgnSuyR_oQDR"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": null,
+    "Description": null,
+    "RelatedObjects": [
+        {
+            "type": 5,
+            "value": 241
+        }
+    ],
+    "RelatingPropertyDefinition": {
+        "type": 5,
+        "value": 249
+    }
+},
+"255": {
+    "expressID": 255,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tamaño libre"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "500 mmx300 mm"
+    },
+    "Unit": null
+},
+"256": {
+    "expressID": 256,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tamaño total"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "500 mmx300 mm"
+    },
+    "Unit": null
+},
+"257": {
+    "expressID": 257,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Flujo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCVOLUMETRICFLOWRATEMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"258": {
+    "expressID": 258,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Flujo adicional"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCVOLUMETRICFLOWRATEMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"259": {
+    "expressID": 259,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Fricción"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCREAL",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": {
+        "type": 5,
+        "value": 71
+    }
+},
+"260": {
+    "expressID": 260,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Pérdida de carga"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPRESSUREMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"261": {
+    "expressID": 261,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Presión de velocidad"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCPRESSUREMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"262": {
+    "expressID": 262,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Velocidad"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLINEARVELOCITYMEASURE",
+        "valueType": 4,
+        "value": 0
+    },
+    "Unit": null
+},
+"263": {
+    "expressID": 263,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación inferior"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.149999999999993
+    },
+    "Unit": null
+},
+"264": {
+    "expressID": 264,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación intermedia"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.2999999999999936
+    },
+    "Unit": null
+},
+"265": {
+    "expressID": 265,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación intermedia final"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.2999999999999936
+    },
+    "Unit": null
+},
+"266": {
+    "expressID": 266,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación intermedia inicial"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.2999999999999936
+    },
+    "Unit": null
+},
+"267": {
+    "expressID": 267,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Elevación superior"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 3.449999999999994
+    },
+    "Unit": null
+},
+"268": {
+    "expressID": 268,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Área"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCAREAMEASURE",
+        "valueType": 4,
+        "value": 7.919999999999967
+    },
+    "Unit": null
+},
+"269": {
+    "expressID": 269,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Clasificación de sistema"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "Suministro de aire"
+    },
+    "Unit": null
+},
+"270": {
+    "expressID": 270,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Diámetro equivalente"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.41997930687756324
+    },
+    "Unit": null
+},
+"271": {
+    "expressID": 271,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Diámetro hidráulico"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.3750000000000001
+    },
+    "Unit": null
+},
+"272": {
+    "expressID": 272,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Nombre de sistema"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "CSPT-HVAC-CL9-IMP"
+    },
+    "Unit": null
+},
+"273": {
+    "expressID": 273,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tramo"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCINTEGER",
+        "valueType": 4,
+        "value": 55
+    },
+    "Unit": null
+},
+"274": {
+    "expressID": 274,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Altura"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.3000000000000001
+    },
+    "Unit": null
+},
+"275": {
+    "expressID": 275,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Anchura"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 0.5
+    },
+    "Unit": null
+},
+"276": {
+    "expressID": 276,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Longitud"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCLENGTHMEASURE",
+        "valueType": 4,
+        "value": 4.949999999999979
+    },
+    "Unit": null
+},
+"277": {
+    "expressID": 277,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Tamaño"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "500 mmx300 mm"
+    },
+    "Unit": null
+},
+"278": {
+    "expressID": 278,
+    "type": 3650150729,
+    "Name": {
+        "type": 1,
+        "value": "Editado por"
+    },
+    "Description": null,
+    "NominalValue": {
+        "type": 2,
+        "label": "IFCTEXT",
+        "valueType": 1,
+        "value": "satero"
+    },
+    "Unit": null
+},
+"279": {
+    "expressID": 279,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "0$52ipHoddmgjK74dgfoSd"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Aislamiento interior"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 164
+        },
+        {
+            "type": 5,
+            "value": 255
+        }
+    ]
+},
+"280": {
+    "expressID": 280,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "2m2NAPBt_n2HL_IUDI6gMd"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Aislamiento"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 166
+        },
+        {
+            "type": 5,
+            "value": 256
+        }
+    ]
+},
+"281": {
+    "expressID": 281,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "3EsprBZffKth4PNvgRUTCq"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Mecánico - Flujo"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 171
+        },
+        {
+            "type": 5,
+            "value": 257
+        },
+        {
+            "type": 5,
+            "value": 258
+        },
+        {
+            "type": 5,
+            "value": 259
+        },
+        {
+            "type": 5,
+            "value": 260
+        },
+        {
+            "type": 5,
+            "value": 261
+        },
+        {
+            "type": 5,
+            "value": 262
+        }
+    ]
+},
+"282": {
+    "expressID": 282,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "0CT1IYAppL8zCKspE4jBkD"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Restricciones"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 180
+        },
+        {
+            "type": 5,
+            "value": 181
+        },
+        {
+            "type": 5,
+            "value": 182
+        },
+        {
+            "type": 5,
+            "value": 183
+        },
+        {
+            "type": 5,
+            "value": 263
+        },
+        {
+            "type": 5,
+            "value": 264
+        },
+        {
+            "type": 5,
+            "value": 265
+        },
+        {
+            "type": 5,
+            "value": 266
+        },
+        {
+            "type": 5,
+            "value": 267
+        }
+    ]
+},
+"283": {
+    "expressID": 283,
+    "type": 1451395588,
+    "GlobalId": {
+        "type": 1,
+        "value": "1yrJXgE2fVCAw$3rjA$IbY"
+    },
+    "OwnerHistory": {
+        "type": 5,
+        "value": 20
+    },
+    "Name": {
+        "type": 1,
+        "value": "Proceso por fases"
+    },
+    "Description": null,
+    "HasProperties": [
+        {
+            "type": 5,
+            "value": 184
+        }
+    ]
+},

@@ -21,7 +21,7 @@ export const SearchMenu = ({ datos }: any) => {
     const filterOptions = (datos: any, state: { inputValue: string }) => {
         const filteredOptions = datos.filter((data: any) => {
 
-            //console.log("datos: " + datos);
+            console.log("datos: " + datos);
             const optionLabel = data.id.toLowerCase() + data.autoID.toLowerCase();
             const removeAccentsOL = optionLabel.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             //console.log("optionLabel: " + optionLabel);

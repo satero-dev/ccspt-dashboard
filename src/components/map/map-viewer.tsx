@@ -15,10 +15,6 @@ import { Event } from "openbim-components";
 import { FieldValue } from "firebase/firestore";
 import { BottomMenu } from "../bottom-toolbar/bottom-menu";
 import { SearchMenu } from "../search-toolbar/search-menu";
-import { MapDrawer } from "../toolbar-side/map-drawer-general";
-
-import { FrontMenuMode } from "../toolbar-side/front-menu/types";
-import { BuildingFrontMenu } from "../toolbar-side/front-menu/map-front-menu";
 
 type Props = {
     children?: React.ReactNode;
@@ -33,7 +29,6 @@ export const MapViewer = ({ children }: Props) => {
 
     //Parámetros de menu lateral
     const [frontOpen, setFrontOpen] = useState(false);
-    const [frontMenu, setFrontMenu] = useState<FrontMenuMode>("BuildingInfo");
 
     //Parámetros de control de escaneo
     const [isScanning, setIsScanning] = useState(false);
@@ -105,12 +100,6 @@ export const MapViewer = ({ children }: Props) => {
         return <Navigate to={url} />
     }
 
-    const toggleFrontMenu = (active = !frontOpen, mode?: FrontMenuMode) => {
-        if (mode) {
-            setFrontMenu(mode);
-        }
-        setFrontOpen(active);
-    };
 
     const onToggleCreate = () => {
         setIsCreatingBuilding(!isCreatingBuilding);

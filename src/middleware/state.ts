@@ -1,15 +1,16 @@
 import { User } from "firebase/auth";
-import { Building } from "../types";
-import { Role } from "../roles";
+import { Building, Floorplan, Property } from "../types";
 
 export interface State {
     user: User | null;
     building: Building | null;
-    role: Role | null;
+    floorplans: Floorplan[];
+    properties: Property[];
 }
 
 export const initialState: State = {
     user: null,
     building: null,
-    role: null,
+    floorplans: [],
+    properties: [],
 };

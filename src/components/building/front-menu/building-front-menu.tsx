@@ -3,11 +3,10 @@ import { FC } from "react";
 import "./building-front-menu.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { BuildingInfoMenu } from "./front-menu-content/building-info-menu";
-//import { ModelListMenu } from "./front-menu-content/model-list-menu";
-import { FrontMenuMode } from "./types";
 import { ModelListMenu } from "./front-menu-content/model-list-menu";
-//import { PropertiesMenu } from "./front-menu-content/properties-menu";
-//import { FloorplanMenu } from "./front-menu-content/floorplan-menu";
+import { FrontMenuMode } from "./types";
+import { PropertiesMenu } from "./front-menu-content/properties-menu";
+import { FloorplanMenu } from "./front-menu-content/floorplan-menu";
 
 export const BuildingFrontMenu: FC<{
   mode: FrontMenuMode;
@@ -21,8 +20,8 @@ export const BuildingFrontMenu: FC<{
   const content = new Map<FrontMenuMode, any>();
   content.set("BuildingInfo", <BuildingInfoMenu onToggleMenu={onToggleMenu} />);
   content.set("ModelList", <ModelListMenu />);
-  //content.set("Properties", <PropertiesMenu />);
-  //content.set("Floorplans", <FloorplanMenu />);
+  content.set("Properties", <PropertiesMenu />);
+  content.set("Floorplans", <FloorplanMenu />);
 
   const titles = {
     BuildingInfo: "Building Information",
